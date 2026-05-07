@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brendan Lam — Sales & Marketing Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0f1f3d;
+    --navy-light: #1a3260;
+    --gold: #c9a84c;
+    --gold-light: #e8d5a3;
+    --cream: #f9f6f0;
+    --white: #ffffff;
+    --text: #1a1a2e;
+    --muted: #5c6680;
+    --border: #e2d9cc;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--navy);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2.5rem;
+    height: 56px;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    color: var(--gold);
+    font-size: 1.2rem;
+    letter-spacing: 0.04em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  /* HERO */
+  .hero {
+    background: var(--navy);
+    padding: 5rem 2.5rem 4rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2rem;
+    align-items: end;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    right: -80px;
+    top: -80px;
+    width: 340px;
+    height: 340px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.12);
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 1px solid rgba(201,168,76,0.08);
+  }
+
+  .hero-eyebrow {
+    color: var(--gold);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .hero-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 7vw, 4.5rem);
+    color: var(--white);
+    line-height: 1.05;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-title {
+    color: var(--gold-light);
+    font-size: 1rem;
+    font-weight: 300;
+    letter-spacing: 0.06em;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-bio {
+    color: rgba(255,255,255,0.65);
+    max-width: 520px;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--navy);
+    padding: 0.7rem 1.75rem;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .hero-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+  .hero-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: right;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stat-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.2rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 3px;
+  }
+
+  /* SECTIONS */
+  section { padding: 4rem 2.5rem; }
+  section:nth-child(even) { background: var(--white); }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--navy);
+    white-space: nowrap;
+  }
+
+  .section-line {
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* SKILLS */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+
+  .skill-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 1.25rem 1.5rem;
+    border-left: 3px solid var(--gold);
+  }
+
+  .skill-card h3 {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.25rem;
+  }
+
+  .skill-card p {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* EXPERIENCE */
+  .exp-list { display: flex; flex-direction: column; gap: 2rem; }
+
+  .exp-item {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1.5rem;
+    position: relative;
+  }
+
+  .exp-item::before {
+    content: '';
+    position: absolute;
+    left: 131px;
+    top: 8px;
+    bottom: -2rem;
+    width: 1px;
+    background: var(--border);
+  }
+
+  .exp-item:last-child::before { display: none; }
+
+  .exp-date {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding-top: 3px;
+    text-align: right;
+  }
+
+  .exp-dot {
+    position: absolute;
+    left: 125px;
+    top: 5px;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+  }
+
+  section:nth-child(even) .exp-dot { border-color: var(--white); }
+
+  .exp-content h3 {
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 2px;
+  }
+
+  .exp-content .company {
+    font-size: 0.82rem;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+  }
+
+  .exp-content ul {
+    padding-left: 1rem;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+
+  .exp-content ul li { margin-bottom: 0.3rem; }
+
+  /* EDUCATION */
+  .edu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+  }
+
+  .edu-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  section:nth-child(even) .edu-card { background: var(--cream); }
+
+  .edu-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gold);
+  }
+
+  .edu-year {
+    font-size: 11px;
+    color: var(--gold);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+
+  .edu-card h3 {
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--navy);
+    margin-bottom: 0.3rem;
+    line-height: 1.4;
+  }
+
+  .edu-card p {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+
+  /* CONTACT */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .contact-info h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: var(--navy);
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-info p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-detail {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text);
+  }
+
+  .contact-icon {
+    width: 36px;
+    height: 36px;
+    background: var(--navy);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .contact-form { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .contact-form input,
+  .contact-form textarea {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.75rem 1rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--gold); }
+
+  .contact-form textarea { height: 110px; resize: vertical; }
+
+  .contact-form button {
+    background: var(--navy);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    letter-spacing: 0.05em;
+    transition: background 0.2s;
+    align-self: flex-start;
+  }
+
+  .contact-form button:hover { background: var(--navy-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--navy);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+  }
+
+  @media (max-width: 600px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-stats { flex-direction: row; text-align: left; }
+    .exp-item { grid-template-columns: 100px 1fr; }
+    .exp-item::before { left: 91px; }
+    .exp-dot { left: 85px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 3rem 1.25rem; }
+    .hero { padding: 3rem 1.25rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">BL</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero" id="about">
+  <div>
+    <p class="hero-eyebrow">Sales & Marketing Specialist</p>
+    <h1 class="hero-name">Brendan<br>Lam</h1>
+    <p class="hero-title">Sales Representative · Marketing Specialist · Sydney, AU</p>
+    <p class="hero-bio">Final-year Business (Marketing) student at Western Sydney University with 4+ years of commission-based sales experience. Passionate about blending people skills with data-driven marketing to drive results — and eager to bring that energy to a growing marketing team.</p>
+    <a href="#contact" class="hero-cta">Get in touch</a>
+  </div>
+  <div class="hero-stats">
+    <div>
+      <div class="stat-num">4+</div>
+      <div class="stat-label">Years in sales</div>
+    </div>
+    <div>
+      <div class="stat-num">3×</div>
+      <div class="stat-label">Google AI certs</div>
+    </div>
+    <div>
+      <div class="stat-num">2</div>
+      <div class="stat-label">Languages</div>
+    </div>
+  </div>
+</div>
+
+<!-- SKILLS -->
+<section>
+  <div class="section-header">
+    <h2>Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>Sales & KPI Management</h3>
+      <p>Commission-based selling, target setting, performance tracking</p>
+    </div>
+    <div class="skill-card">
+      <h3>Marketing Operations</h3>
+      <p>Campaign management, digital tool design, brand growth</p>
+    </div>
+    <div class="skill-card">
+      <h3>AI & Data Tools</h3>
+      <p>Excel data analysis, business AI tools, Google Generative AI</p>
+    </div>
+    <div class="skill-card">
+      <h3>Content Creation</h3>
+      <p>Short-form video editing, social media content</p>
+    </div>
+    <div class="skill-card">
+      <h3>Leadership & Mentorship</h3>
+      <p>Onboarding new starters, training, team development</p>
+    </div>
+    <div class="skill-card">
+      <h3>Multilingual</h3>
+      <p>Fluent in English and Vietnamese</p>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-header">
+    <h2>Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="exp-list">
+
+    <div class="exp-item">
+      <div class="exp-date">2022 – Present</div>
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3>Senior Sales & Marketing Representative</h3>
+        <div class="company">Next Level Paintball</div>
+        <ul>
+          <li>Consistently set and hit sales KPI targets, earning multiple promotions within the first year</li>
+          <li>Onboarded new starters through mentorship, target setting, and regular management updates</li>
+          <li>Developed leadership skills training and guiding new recruits</li>
+          <li>Applied creative problem-solving to handle unprecedented business scenarios</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2024 – 2025</div>
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3>Admin, Sales & Marketing Associate</h3>
+        <div class="company">Sydney Sprouts</div>
+        <ul>
+          <li>Managed day-to-day marketing operations for the business</li>
+          <li>Designed digital tools and assets to aid business growth</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item">
+      <div class="exp-date">2024</div>
+      <div class="exp-dot"></div>
+      <div class="exp-content">
+        <h3>Sales Associate</h3>
+        <div class="company">TC Enterprises</div>
+        <ul>
+          <li>Cold calling and lead generation</li>
+          <li>Appointment setting for the sales pipeline</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="section-header">
+    <h2>Education & Certifications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-year">2023 – Present</div>
+      <h3>Bachelor of Business — Major in Marketing</h3>
+      <p>Western Sydney University</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">2023 – 2025</div>
+      <h3>Diploma of Business Enterprise</h3>
+      <p>Western Sydney University</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">Google Certified</div>
+      <h3>Build & Modernise Applications with Generative AI</h3>
+      <p>Google Cloud</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">Google Certified</div>
+      <h3>Integrate Generative AI into Your Data Workflow</h3>
+      <p>Google Cloud</p>
+    </div>
+    <div class="edu-card">
+      <div class="edu-year">Google Certified</div>
+      <h3>Deploy and Manage Generative AI Models</h3>
+      <p>Google Cloud</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <h2>Get in Touch</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Let's work together</h3>
+      <p>I'm open to marketing roles, sales opportunities, and graduate positions in Sydney. Reach out — I'd love to chat.</p>
+      <div class="contact-detail">
+        <div class="contact-icon">📧</div>
+        <span>brendan.lam3@gmail.com</span>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📞</div>
+        <span>0487 291 731</span>
+      </div>
+      <div class="contact-detail">
+        <div class="contact-icon">📍</div>
+        <span>Cabramatta West, Sydney NSW 2166</span>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <input type="text" name="name" placeholder="Your name" required />
+        <input type="email" name="email" placeholder="Your email" required />
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <button type="submit">Send message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  © 2026 Brendan Lam · Sales & Marketing Specialist · Sydney, AU
+</footer>
+
+<script>
+  function handleSubmit(e) {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const message = form.message.value;
+    const mailto = `mailto:brendan.lam3@gmail.com?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(message + '\n\nFrom: ' + name + '\nEmail: ' + email)}`;
+    window.location.href = mailto;
+  }
+</script>
+
+</body>
+</html>
