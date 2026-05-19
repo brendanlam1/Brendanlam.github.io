@@ -1,1121 +1,1551 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brendan Lam — Marketing & Sales Specialist | Sydney</title>
+<meta name="description" content="Sydney-based marketing & sales specialist. Strategy, growth, and AI-powered campaigns that turn intent into revenue." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F4F1EA;
+    --bg-soft: #ECE7DC;
+    --paper: #FAF8F3;
+    --ink: #100F0D;
+    --ink-soft: #2A2925;
+    --muted: #6B6760;
+    --line: #C9C2B0;
+    --accent: #B23A2A;
+    --accent-2: #D97757;
+    --accent-soft: #E9CFC8;
+    --serif: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
 
-:root {
-  --bg:       #06090f;
-  --bg2:      #0c1220;
-  --bg3:      #111827;
-  --gold:     #c9a84c;
-  --gold-lt:  #e8d197;
-  --gold-dim: rgba(201,168,76,0.12);
-  --text:     #dde6f5;
-  --muted:    #6b7fa3;
-  --border:   rgba(201,168,76,0.18);
-  --sp:       6rem 6%;
-}
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.7;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
 
-html { scroll-behavior: smooth; }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
 
-body {
-  font-family: 'Inter', sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  font-size: 16px;
-  line-height: 1.65;
-  overflow-x: hidden;
-}
+  .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
 
-::-webkit-scrollbar { width: 4px; }
-::-webkit-scrollbar-track { background: var(--bg); }
-::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+  /* ========================================== */
+  /* AMBIENT BACKGROUND — always moving         */
+  /* ========================================== */
+  .ambient {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.55;
+    mix-blend-mode: multiply;
+  }
+  .blob-1 {
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+    top: -120px; left: -120px;
+    animation: drift1 22s ease-in-out infinite alternate;
+  }
+  .blob-2 {
+    width: 480px; height: 480px;
+    background: radial-gradient(circle, #F4D8C8 0%, transparent 70%);
+    top: 40%; right: -100px;
+    animation: drift2 28s ease-in-out infinite alternate;
+  }
+  .blob-3 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, #E5DECC 0%, transparent 70%);
+    bottom: -200px; left: 30%;
+    animation: drift3 32s ease-in-out infinite alternate;
+  }
+  @keyframes drift1 {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(120px, 80px) scale(1.15); }
+  }
+  @keyframes drift2 {
+    0%   { transform: translate(0, 0) scale(1.05); }
+    100% { transform: translate(-100px, -120px) scale(0.95); }
+  }
+  @keyframes drift3 {
+    0%   { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-160px, -60px) scale(1.2); }
+  }
 
-/* ═══════════════════════════════ NAV */
-nav {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 1000;
-  padding: 1.4rem 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: all 0.35s ease;
-}
-nav.scrolled {
-  background: rgba(6,9,15,0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  padding: 0.9rem 6%;
-  border-bottom: 1px solid var(--border);
-}
-.nav-logo {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.5rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.02em;
-  text-decoration: none;
-}
-.nav-logo span { color: var(--gold); }
-.nav-links {
-  display: flex;
-  gap: 2.5rem;
-  list-style: none;
-  align-items: center;
-}
-.nav-links a {
-  color: rgba(255,255,255,0.55);
-  text-decoration: none;
-  font-size: 0.88rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
-  transition: color 0.2s;
-}
-.nav-links a:hover { color: var(--gold); }
-.nav-cta {
-  background: var(--gold) !important;
-  color: var(--bg) !important;
-  padding: 0.55rem 1.3rem !important;
-  border-radius: 5px !important;
-  font-weight: 600 !important;
-  transition: background 0.2s, transform 0.2s !important;
-}
-.nav-cta:hover { background: var(--gold-lt) !important; transform: translateY(-1px); }
+  /* Subtle grain/dot texture overlay */
+  .grain {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.4;
+    background-image: radial-gradient(circle at 1px 1px, rgba(16, 15, 13, 0.07) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
 
-/* ═══════════════════════════════ HERO */
-.hero {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 9rem 6% 5rem;
-  position: relative;
-  overflow: hidden;
-}
-.hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
-  background-size: 64px 64px;
-  pointer-events: none;
-  z-index: 0;
-}
-.blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(110px);
-  pointer-events: none;
-  z-index: 0;
-}
-.blob-1 {
-  width: 560px; height: 560px;
-  background: rgba(201,168,76,0.13);
-  top: -120px; right: -100px;
-  animation: blob1 14s ease-in-out infinite;
-}
-.blob-2 {
-  width: 420px; height: 420px;
-  background: rgba(74,144,217,0.09);
-  bottom: -60px; left: -80px;
-  animation: blob2 18s ease-in-out infinite;
-}
-.blob-3 {
-  width: 280px; height: 280px;
-  background: rgba(201,168,76,0.08);
-  top: 45%; left: 45%;
-  animation: blob3 11s ease-in-out infinite;
-}
-@keyframes blob1 {
-  0%,100% { transform: translate(0,0) scale(1); }
-  33%      { transform: translate(-35px,25px) scale(1.06); }
-  66%      { transform: translate(20px,-20px) scale(0.96); }
-}
-@keyframes blob2 {
-  0%,100% { transform: translate(0,0) scale(1); }
-  50%      { transform: translate(45px,-35px) scale(1.1); }
-}
-@keyframes blob3 {
-  0%,100% { transform: translate(0,0); }
-  33%      { transform: translate(25px,20px); }
-  66%      { transform: translate(-18px,12px); }
-}
-.hero-content { position: relative; z-index: 1; max-width: 820px; }
-.hero-eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  color: var(--gold);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  transform: translateY(18px);
-  animation: fadeUp 0.7s ease 0.3s forwards;
-}
-.hero-eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 32px; height: 1px;
-  background: var(--gold);
-}
-.hero-h1 {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(3rem, 7.5vw, 5.8rem);
-  font-weight: 800;
-  line-height: 1.04;
-  color: #fff;
-  letter-spacing: -0.035em;
-  margin-bottom: 1.5rem;
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeUp 0.8s ease 0.5s forwards;
-}
-.hero-h1 .highlight { color: var(--gold); }
-.hero-sub {
-  font-size: 1.1rem;
-  color: var(--muted);
-  margin-bottom: 2.5rem;
-  height: 1.8rem;
-  opacity: 0;
-  transform: translateY(18px);
-  animation: fadeUp 0.7s ease 0.75s forwards;
-}
-.typed {
-  color: var(--text);
-  border-right: 2px solid var(--gold);
-  padding-right: 3px;
-}
-.hero-ctas {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  opacity: 0;
-  transform: translateY(18px);
-  animation: fadeUp 0.7s ease 0.95s forwards;
-}
-.btn-primary {
-  background: var(--gold);
-  color: var(--bg);
-  padding: 0.9rem 2.1rem;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-decoration: none;
-  letter-spacing: 0.02em;
-  transition: all 0.22s ease;
-  display: inline-block;
-}
-.btn-primary:hover {
-  background: var(--gold-lt);
-  transform: translateY(-2px);
-  box-shadow: 0 12px 35px rgba(201,168,76,0.28);
-}
-.btn-outline {
-  border: 1px solid var(--border);
-  color: var(--text);
-  padding: 0.9rem 2.1rem;
-  border-radius: 6px;
-  font-weight: 500;
-  font-size: 0.95rem;
-  text-decoration: none;
-  transition: all 0.22s ease;
-  display: inline-block;
-}
-.btn-outline:hover {
-  border-color: var(--gold);
-  color: var(--gold);
-  transform: translateY(-2px);
-}
-.hero-stats {
-  display: flex;
-  gap: 3.5rem;
-  margin-top: 4.5rem;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--border);
-  opacity: 0;
-  transform: translateY(18px);
-  animation: fadeUp 0.7s ease 1.15s forwards;
-}
-.hs-num {
-  font-family: 'Syne', sans-serif;
-  font-size: 2.1rem;
-  font-weight: 800;
-  color: var(--gold);
-  line-height: 1;
-}
-.hs-label {
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-top: 5px;
-}
-.scroll-hint {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--muted);
-  font-size: 0.68rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  z-index: 1;
-  animation: scrollBounce 2.2s ease-in-out infinite;
-}
-.scroll-hint::after {
-  content: '';
-  width: 1px; height: 44px;
-  background: linear-gradient(to bottom, var(--gold), transparent);
-}
-@keyframes scrollBounce {
-  0%,100% { transform: translateX(-50%) translateY(0); }
-  50%      { transform: translateX(-50%) translateY(9px); }
-}
+  /* Scroll progress beam */
+  .scroll-beam {
+    position: fixed;
+    top: 0; left: 0;
+    height: 2px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    z-index: 200;
+    box-shadow: 0 0 12px rgba(178, 58, 42, 0.5);
+    transition: width .1s ease-out;
+  }
 
-/* ═══════════════════════════════ SERVICES */
-#services {
-  padding: var(--sp);
-  background: var(--bg2);
-}
-.eyebrow {
-  color: var(--gold);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.22em;
-  text-transform: uppercase;
-  margin-bottom: 0.7rem;
-  display: flex;
-  align-items: center;
-  gap: 0.55rem;
-}
-.eyebrow::before {
-  content: '';
-  display: inline-block;
-  width: 24px; height: 1px;
-  background: var(--gold);
-}
-.sec-title {
-  font-family: 'Syne', sans-serif;
-  font-size: clamp(2rem, 4vw, 3.1rem);
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  margin-bottom: 0.9rem;
-}
-.sec-sub {
-  font-size: 0.98rem;
-  color: var(--muted);
-  max-width: 500px;
-  margin-bottom: 3.5rem;
-  line-height: 1.75;
-}
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.25rem;
-}
-.svc-card {
-  background: var(--bg3);
-  border: 1px solid rgba(255,255,255,0.06);
-  border-radius: 14px;
-  padding: 2rem;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s ease, border-color 0.3s, box-shadow 0.3s;
-  opacity: 0;
-  transform: translateY(45px);
-}
-.svc-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.6s ease, transform 0.6s ease,
-              border-color 0.3s, box-shadow 0.3s;
-}
-.svc-card::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--gold-dim), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.3s;
-  border-radius: 14px;
-}
-.svc-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 24px 60px rgba(0,0,0,0.45); }
-.svc-card:hover::after { opacity: 1; }
-.svc-icon { font-size: 2.1rem; margin-bottom: 1.25rem; display: block; position: relative; z-index: 1; }
-.svc-card h3 {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.55rem;
-  position: relative; z-index: 1;
-}
-.svc-card p {
-  font-size: 0.87rem;
-  color: var(--muted);
-  line-height: 1.75;
-  position: relative; z-index: 1;
-}
+  /* Floating side ornament — sticks during scroll */
+  .side-ornament {
+    position: fixed;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none;
+  }
+  .side-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--ink-soft);
+    opacity: 0.25;
+    transition: all .4s ease;
+  }
+  .side-dot.active {
+    opacity: 1;
+    background: var(--accent);
+    transform: scale(1.5);
+    box-shadow: 0 0 0 6px rgba(178, 58, 42, 0.15);
+    animation: sidePulse 2s ease-in-out infinite;
+  }
+  @keyframes sidePulse {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(178, 58, 42, 0.15); }
+    50% { box-shadow: 0 0 0 12px rgba(178, 58, 42, 0); }
+  }
+  @media (max-width: 720px) { .side-ornament { display: none; } }
 
-/* ═══════════════════════════════ STATS STRIPE */
-.stats-stripe {
-  padding: 4.5rem 6%;
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-.stats-inner {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-}
-.stat-item {
-  text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-}
-.stat-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-  transition: all 0.65s ease;
-}
-.stat-big {
-  font-family: 'Syne', sans-serif;
-  font-size: 3.8rem;
-  font-weight: 800;
-  color: var(--gold);
-  line-height: 1;
-  display: block;
-}
-.stat-suf { font-size: 2.2rem; color: var(--gold); }
-.stat-lbl {
-  font-size: 0.75rem;
-  color: var(--muted);
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  margin-top: 0.6rem;
-}
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    background: rgba(244, 241, 234, 0.82);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 32px;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+  .nav-logo {
+    font-family: var(--serif);
+    font-size: 26px;
+    letter-spacing: -0.01em;
+    font-style: italic;
+    color: var(--ink);
+  }
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .nav-links a {
+    color: var(--ink-soft);
+    transition: color .25s ease;
+    position: relative;
+  }
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0; height: 1px;
+    background: var(--accent);
+    transition: width .3s ease;
+  }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    font-size: 14px;
+    font-weight: 500;
+    padding: 11px 20px;
+    border: 1px solid var(--ink);
+    border-radius: 999px;
+    transition: all .25s ease;
+    color: var(--ink);
+  }
+  .nav-cta:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  @media (max-width: 720px) {
+    .nav-links { display: none; }
+  }
 
-/* ═══════════════════════════════ ABOUT */
-#about {
-  padding: var(--sp);
-  background: var(--bg2);
-}
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 5rem;
-  align-items: center;
-}
-.about-left {
-  opacity: 0;
-  transform: translateX(-50px);
-}
-.about-left.visible {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 0.85s ease;
-}
-.about-right {
-  opacity: 0;
-  transform: translateX(50px);
-}
-.about-right.visible {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 0.85s ease 0.15s;
-}
-.about-bio {
-  font-size: 0.98rem;
-  color: var(--muted);
-  line-height: 1.9;
-  margin-bottom: 1.5rem;
-}
-.about-bio strong { color: var(--text); }
-.cred-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.7rem;
-  margin-bottom: 2.5rem;
-}
-.cred-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.9rem;
-  color: var(--text);
-}
-.cred-dot {
-  width: 7px; height: 7px;
-  border-radius: 50%;
-  background: var(--gold);
-  flex-shrink: 0;
-}
-.about-visual {
-  background: var(--bg3);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 2.5rem;
-  position: relative;
-  overflow: hidden;
-}
-.about-visual::before {
-  content: '';
-  position: absolute;
-  top: -60px; right: -60px;
-  width: 220px; height: 220px;
-  background: radial-gradient(circle, rgba(201,168,76,0.14), transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-.pill-grid { display: flex; flex-wrap: wrap; gap: 0.55rem; }
-.pill {
-  background: rgba(201,168,76,0.1);
-  border: 1px solid rgba(201,168,76,0.22);
-  color: var(--gold-lt);
-  padding: 0.38rem 0.9rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: all 0.2s;
-  cursor: default;
-}
-.pill:hover { background: rgba(201,168,76,0.2); transform: translateY(-2px); }
-.gcerts {
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-}
-.gcerts-title {
-  font-size: 0.68rem;
-  color: var(--muted);
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  margin-bottom: 0.9rem;
-}
-.gcert {
-  display: flex;
-  align-items: center;
-  gap: 0.65rem;
-  font-size: 0.82rem;
-  color: var(--text);
-  margin-bottom: 0.55rem;
-}
-.gcert-dot {
-  width: 18px; height: 18px;
-  border-radius: 50%;
-  background: conic-gradient(#4285f4 0 25%, #ea4335 25% 50%, #fbbc05 50% 75%, #34a853 75%);
-  flex-shrink: 0;
-}
+  /* ========================================== */
+  /* BEACON RIPPLES — radiating outward         */
+  /* ========================================== */
+  .beacon {
+    position: relative;
+    display: inline-block;
+  }
+  .beacon::before,
+  .beacon::after {
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    opacity: 0;
+    pointer-events: none;
+    animation: beacon-pulse 2.8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  .beacon::after { animation-delay: 1.4s; }
+  @keyframes beacon-pulse {
+    0%   { transform: scale(0.7); opacity: 0; }
+    20%  { opacity: 0.7; }
+    100% { transform: scale(2.4); opacity: 0; }
+  }
 
-/* ═══════════════════════════════ MARQUEE */
-.marquee-wrap {
-  padding: 2rem 0;
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  overflow: hidden;
-}
-.marquee-track {
-  display: flex;
-  white-space: nowrap;
-  animation: marqueeScroll 28s linear infinite;
-  width: max-content;
-}
-.marquee-track:hover { animation-play-state: paused; }
-.m-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 1.5rem;
-  padding: 0 2rem;
-  color: var(--muted);
-  font-size: 0.82rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.m-item::after { content: '✦'; color: var(--gold); font-size: 0.55rem; }
-@keyframes marqueeScroll {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
-}
+  /* ---------- HERO ---------- */
+  .hero {
+    padding: 160px 0 80px;
+    position: relative;
+  }
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 36px;
+  }
+  .eyebrow-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    position: relative;
+  }
+  .eyebrow-dot::after {
+    content: "";
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0.3;
+    animation: dot-pulse 1.6s ease-out infinite;
+  }
+  @keyframes dot-pulse {
+    0% { transform: scale(0.6); opacity: 0.4; }
+    100% { transform: scale(2.2); opacity: 0; }
+  }
+  .hero-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(60px, 9vw, 148px);
+    line-height: 0.95;
+    letter-spacing: -0.028em;
+    margin-bottom: 40px;
+    color: var(--ink);
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+    position: relative;
+  }
+  .hero-sub {
+    max-width: 620px;
+    font-size: 20px;
+    color: var(--ink-soft);
+    margin-bottom: 48px;
+    line-height: 1.65;
+    font-weight: 400;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 96px;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 17px 30px;
+    border-radius: 999px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all .3s ease;
+    cursor: pointer;
+    border: none;
+    position: relative;
+    overflow: hidden;
+  }
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.25), transparent 60%);
+    transform: scale(0);
+    transition: transform .5s ease;
+  }
+  .btn:hover::after { transform: scale(2); }
+  .btn-primary {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .btn-primary:hover {
+    background: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px -8px rgba(178, 58, 42, 0.4);
+  }
+  .btn-secondary {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--ink);
+  }
+  .btn-secondary:hover {
+    background: var(--ink);
+    color: var(--paper);
+  }
+  .arrow { transition: transform .3s ease; display: inline-block; }
+  .btn:hover .arrow { transform: translateX(4px); }
 
-/* ═══════════════════════════════ EXPERIENCE */
-#experience {
-  padding: var(--sp);
-  background: var(--bg);
-}
-.exp-list {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  max-width: 780px;
-}
-.exp-list::before {
-  content: '';
-  position: absolute;
-  left: 0; top: 8px; bottom: 20px;
-  width: 1px;
-  background: linear-gradient(to bottom, var(--gold) 60%, transparent);
-}
-.exp-entry {
-  padding: 0 0 3rem 2.75rem;
-  position: relative;
-  opacity: 0;
-  transform: translateX(-30px);
-}
-.exp-entry.visible {
-  opacity: 1;
-  transform: translateX(0);
-  transition: all 0.7s ease;
-}
-.exp-entry::before {
-  content: '';
-  position: absolute;
-  left: -5px; top: 5px;
-  width: 11px; height: 11px;
-  border-radius: 50%;
-  background: var(--gold);
-  box-shadow: 0 0 0 4px rgba(201,168,76,0.15);
-}
-.exp-period {
-  font-size: 0.72rem;
-  font-weight: 600;
-  color: var(--gold);
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  margin-bottom: 0.35rem;
-}
-.exp-role {
-  font-family: 'Syne', sans-serif;
-  font-size: 1.15rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.2rem;
-}
-.exp-co {
-  font-size: 0.85rem;
-  color: var(--muted);
-  margin-bottom: 0.9rem;
-}
-.exp-pts { list-style: none; display: flex; flex-direction: column; gap: 0.35rem; }
-.exp-pts li {
-  font-size: 0.9rem;
-  color: var(--muted);
-  padding-left: 1.1rem;
-  position: relative;
-  line-height: 1.65;
-}
-.exp-pts li::before {
-  content: '→';
-  position: absolute;
-  left: 0;
-  color: var(--gold);
-  font-size: 0.72rem;
-  top: 3px;
-}
+  /* HERO STATS WITH RIPPLES */
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 40px;
+    padding-top: 56px;
+    border-top: 1px solid var(--line);
+    max-width: 820px;
+    position: relative;
+  }
+  .stat {
+    position: relative;
+  }
+  .stat-beacon {
+    position: relative;
+    display: inline-block;
+    padding: 6px 14px;
+  }
+  .stat-beacon::before,
+  .stat-beacon::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 50%;
+    width: 80px; height: 80px;
+    border-radius: 50%;
+    border: 1.5px solid var(--accent);
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    pointer-events: none;
+    animation: stat-ripple 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  .stat-beacon::after {
+    animation-delay: 1.6s;
+    border-color: var(--accent-2);
+  }
+  @keyframes stat-ripple {
+    0%   { transform: translate(-50%, -50%) scale(0.5); opacity: 0; }
+    20%  { opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+  }
+  .stat-num {
+    font-family: var(--serif);
+    font-size: 72px;
+    line-height: 1;
+    letter-spacing: -0.025em;
+    margin-bottom: 10px;
+    color: var(--ink);
+    position: relative;
+    z-index: 2;
+  }
+  .stat-label {
+    font-size: 13px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+  }
 
-/* ═══════════════════════════════ CONTACT */
-#contact {
-  padding: var(--sp);
-  background: var(--bg2);
-}
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.3fr;
-  gap: 5rem;
-  align-items: start;
-}
-.contact-left {
-  opacity: 0; transform: translateY(30px);
-}
-.contact-left.visible {
-  opacity: 1; transform: translateY(0);
-  transition: all 0.7s ease;
-}
-.contact-right {
-  opacity: 0; transform: translateY(30px);
-}
-.contact-right.visible {
-  opacity: 1; transform: translateY(0);
-  transition: all 0.7s ease 0.15s;
-}
-.contact-detail {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
-  color: var(--text);
-}
-.c-icon {
-  width: 42px; height: 42px;
-  background: var(--gold-dim);
-  border: 1px solid var(--border);
-  border-radius: 9px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  font-size: 1.05rem;
-}
-.c-form {
-  background: var(--bg3);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: 18px;
-  padding: 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-.c-form input,
-.c-form textarea {
-  background: var(--bg2);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 8px;
-  padding: 0.9rem 1.1rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  color: var(--text);
-  outline: none;
-  transition: border-color 0.2s;
-  width: 100%;
-}
-.c-form input::placeholder,
-.c-form textarea::placeholder { color: var(--muted); }
-.c-form input:focus,
-.c-form textarea:focus { border-color: var(--gold); }
-.c-form textarea { height: 130px; resize: vertical; }
-.c-form button {
-  background: var(--gold);
-  color: var(--bg);
-  border: none;
-  border-radius: 8px;
-  padding: 0.9rem 1.85rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.95rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.22s;
-  align-self: flex-start;
-  letter-spacing: 0.02em;
-}
-.c-form button:hover {
-  background: var(--gold-lt);
-  transform: translateY(-2px);
-  box-shadow: 0 10px 28px rgba(201,168,76,0.28);
-}
+  /* Floating tag */
+  .floating-tag {
+    position: absolute;
+    top: 200px;
+    right: 32px;
+    transform: rotate(8deg);
+    background: var(--accent-soft);
+    padding: 10px 18px;
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--accent);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    animation: float-tag 4s ease-in-out infinite;
+    box-shadow: 0 8px 24px -8px rgba(178, 58, 42, 0.3);
+  }
+  @keyframes float-tag {
+    0%, 100% { transform: rotate(8deg) translateY(0); }
+    50% { transform: rotate(6deg) translateY(-8px); }
+  }
+  @media (max-width: 900px) { .floating-tag { display: none; } }
 
-/* ═══════════════════════════════ FOOTER */
-footer {
-  background: var(--bg);
-  border-top: 1px solid var(--border);
-  padding: 1.75rem 6%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: var(--muted);
-  font-size: 0.82rem;
-  flex-wrap: wrap;
-  gap: 0.75rem;
-}
-.footer-logo {
-  font-family: 'Syne', sans-serif;
-  font-weight: 800;
-  color: #fff;
-  font-size: 1.1rem;
-  text-decoration: none;
-}
-.footer-logo span { color: var(--gold); }
+  /* ---------- MARQUEE ---------- */
+  .marquee {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+  }
+  .marquee::before, .marquee::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 100px;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .marquee::before { left: 0; background: linear-gradient(90deg, var(--ink), transparent); }
+  .marquee::after { right: 0; background: linear-gradient(-90deg, var(--ink), transparent); }
+  .marquee-track {
+    display: flex;
+    gap: 64px;
+    animation: scroll 45s linear infinite;
+    white-space: nowrap;
+    width: max-content;
+  }
+  .marquee-item {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 64px;
+  }
+  .marquee-item::after {
+    content: "✦";
+    color: var(--accent-2);
+    font-style: normal;
+  }
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
 
-/* ═══════════════════════════════ KEYFRAMES */
-@keyframes fadeUp {
-  to { opacity: 1; transform: translateY(0); }
-}
+  /* ---------- SECTIONS ---------- */
+  section {
+    padding: 120px 0;
+    position: relative;
+    z-index: 2;
+  }
+  .section-label {
+    font-size: 13px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--accent);
+    margin-bottom: 28px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--accent);
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(44px, 6vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.022em;
+    margin-bottom: 64px;
+    max-width: 940px;
+    color: var(--ink);
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
 
-/* ═══════════════════════════════ RESPONSIVE */
-@media (max-width: 960px) {
-  .services-grid { grid-template-columns: 1fr 1fr; }
-  .about-grid    { grid-template-columns: 1fr; gap: 3rem; }
-  .contact-grid  { grid-template-columns: 1fr; gap: 3rem; }
-}
-@media (max-width: 620px) {
-  :root { --sp: 4rem 1.5rem; }
-  .services-grid { grid-template-columns: 1fr; }
-  .hero-stats    { flex-direction: column; gap: 1.5rem; }
-  .stats-inner   { flex-direction: column; }
-  .nav-links li:not(:last-child):not(:nth-last-child(2)) { display: none; }
-  nav { padding: 1rem 1.5rem; }
-  nav.scrolled { padding: 0.8rem 1.5rem; }
-}
+  /* Animated decoration in section corners */
+  .section-decor {
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .section-decor.top-right {
+    top: 40px; right: -80px;
+    width: 200px; height: 200px;
+    opacity: 0.6;
+  }
+  .section-decor svg { width: 100%; height: 100%; }
+  .spin-slow { animation: spin 40s linear infinite; transform-origin: center; }
+  .spin-reverse { animation: spin 60s linear infinite reverse; transform-origin: center; }
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* ---------- FILTER CHIPS ---------- */
+  .chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 56px;
+  }
+  .chip {
+    padding: 11px 22px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    background: var(--paper);
+    cursor: pointer;
+    transition: all .25s ease;
+  }
+  .chip:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+    transform: translateY(-2px);
+  }
+  .chip.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+
+  /* ---------- SERVICES ---------- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    position: relative;
+  }
+  .service-card {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 40px 32px;
+    border-radius: 6px;
+    transition: all .4s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .service-card::before {
+    content: "";
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-2));
+    transition: width .4s ease;
+  }
+  /* Floating beacon on each card */
+  .service-card::after {
+    content: "";
+    position: absolute;
+    top: 36px; right: 36px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 0 0 rgba(178, 58, 42, 0.6);
+    animation: card-beacon 2.6s ease-out infinite;
+  }
+  @keyframes card-beacon {
+    0%   { box-shadow: 0 0 0 0 rgba(178, 58, 42, 0.55); }
+    70%  { box-shadow: 0 0 0 22px rgba(178, 58, 42, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(178, 58, 42, 0); }
+  }
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 48px -16px rgba(22, 21, 19, 0.18);
+    border-color: var(--ink);
+  }
+  .service-card:hover::before { width: 100%; }
+  .service-num {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-style: italic;
+    color: var(--accent);
+    margin-bottom: 32px;
+    letter-spacing: 0.04em;
+  }
+  .service-title {
+    font-family: var(--serif);
+    font-size: 36px;
+    line-height: 1.1;
+    margin-bottom: 18px;
+    letter-spacing: -0.018em;
+    color: var(--ink);
+  }
+  .service-desc {
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.7;
+  }
+  .service-tag {
+    display: inline-block;
+    margin-top: 28px;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--accent);
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .about-bg-svg {
+    position: absolute;
+    bottom: -40px; left: -40px;
+    width: 360px; height: 360px;
+    opacity: 0.18;
+    z-index: 1;
+  }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 2;
+  }
+  @media (max-width: 900px) {
+    .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .about-portrait {
+    aspect-ratio: 3/4;
+    background: linear-gradient(135deg, var(--accent-soft), var(--bg));
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    padding: 32px;
+  }
+  /* BL beacon — radiating outward like a lighthouse */
+  .bl-beacon-wrap {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 220px;
+    height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+  .bl-ring {
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid var(--accent);
+    opacity: 0;
+    animation: bl-ripple 3.2s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+  }
+  .bl-ring-1 { width: 140px; height: 140px; }
+  .bl-ring-2 { width: 140px; height: 140px; animation-delay: 0.8s; border-color: var(--accent-2); }
+  .bl-ring-3 { width: 140px; height: 140px; animation-delay: 1.6s; }
+  .bl-ring-4 { width: 140px; height: 140px; animation-delay: 2.4s; border-color: var(--accent-2); }
+  @keyframes bl-ripple {
+    0%   { transform: scale(0.6); opacity: 0; }
+    20%  { opacity: 0.8; }
+    100% { transform: scale(2.6); opacity: 0; }
+  }
+  .portrait-monogram {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 200px;
+    color: var(--ink);
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 4px 24px rgba(178, 58, 42, 0.25);
+  }
+  .portrait-label {
+    position: absolute;
+    bottom: 32px;
+    left: 32px;
+    background: var(--paper);
+    padding: 14px 22px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 600;
+    z-index: 3;
+    box-shadow: 0 4px 16px -4px rgba(0,0,0,0.1);
+  }
+  .portrait-tag-2 {
+    position: absolute;
+    top: 28px;
+    right: 28px;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    z-index: 3;
+    transform: rotate(4deg);
+    animation: float-tag 4s ease-in-out infinite reverse;
+  }
+  .about-text p {
+    font-size: 19px;
+    color: var(--ink-soft);
+    margin-bottom: 24px;
+    line-height: 1.75;
+  }
+  .about-text strong { color: var(--ink); font-weight: 600; }
+  .about-text em.highlight {
+    background: linear-gradient(180deg, transparent 60%, var(--accent-soft) 60%);
+    font-style: normal;
+    padding: 0 4px;
+  }
+  .about-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 36px;
+  }
+  .skill-pill {
+    padding: 9px 16px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink-soft);
+    transition: all .25s ease;
+  }
+  .skill-pill:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- EXPERIENCE ---------- */
+  .exp-list {
+    border-top: 1px solid var(--line);
+    position: relative;
+  }
+  .exp-item {
+    display: grid;
+    grid-template-columns: 200px 1fr auto;
+    gap: 48px;
+    padding: 44px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: start;
+    transition: all .35s ease;
+    position: relative;
+  }
+  .exp-item::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 60px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    opacity: 0;
+    transition: opacity .3s ease;
+    box-shadow: 0 0 0 0 rgba(178, 58, 42, 0.5);
+    animation: exp-pulse 2s ease-out infinite;
+  }
+  .exp-item:hover {
+    padding-left: 24px;
+    background: rgba(178, 58, 42, 0.03);
+  }
+  .exp-item:hover::before { opacity: 1; }
+  .exp-item:hover .exp-arrow { transform: translateX(8px); color: var(--accent); }
+  @keyframes exp-pulse {
+    0%   { box-shadow: 0 0 0 0 rgba(178, 58, 42, 0.5); }
+    100% { box-shadow: 0 0 0 12px rgba(178, 58, 42, 0); }
+  }
+  @media (max-width: 720px) {
+    .exp-item { grid-template-columns: 1fr; gap: 16px; }
+  }
+  .exp-year {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--accent);
+  }
+  .exp-role {
+    font-family: var(--serif);
+    font-size: 32px;
+    line-height: 1.15;
+    letter-spacing: -0.012em;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .exp-company {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .exp-bullets {
+    list-style: none;
+  }
+  .exp-bullets li {
+    color: var(--ink-soft);
+    font-size: 16px;
+    line-height: 1.65;
+    margin-bottom: 8px;
+    padding-left: 22px;
+    position: relative;
+  }
+  .exp-bullets li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .exp-arrow {
+    font-family: var(--serif);
+    font-size: 36px;
+    color: var(--muted);
+    transition: all .3s ease;
+  }
+
+  /* ---------- INSTAGRAM ---------- */
+  .ig {
+    background: var(--paper);
+    border-top: 1px solid var(--line);
+  }
+  .ig-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+  .ig-handle {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--accent);
+  }
+  .ig-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 16px;
+  }
+  .ig-tile {
+    aspect-ratio: 1;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all .4s ease;
+  }
+  .ig-tile::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(22, 21, 19, 0);
+    transition: background .3s ease;
+  }
+  .ig-tile:hover {
+    transform: scale(1.04);
+    z-index: 5;
+  }
+  .ig-tile:hover::after {
+    background: rgba(22, 21, 19, 0.4);
+  }
+  .ig-tile:hover .ig-icon { color: var(--paper); transform: scale(1.15); }
+  .ig-icon {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 56px;
+    color: var(--paper);
+    transition: all .3s ease;
+    z-index: 2;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.2);
+  }
+  .ig-tile-1 { background: linear-gradient(135deg, #E9CFC8, #B23A2A); }
+  .ig-tile-2 { background: linear-gradient(160deg, #D9D3C5, #6B6760); }
+  .ig-tile-3 { background: linear-gradient(135deg, #B23A2A 0%, #D97757 100%); }
+  .ig-tile-4 { background: linear-gradient(160deg, #ECE7DC, #B23A2A); }
+  .ig-tile-5 { background: linear-gradient(135deg, #D97757, #100F0D); }
+  .ig-tile-6 { background: linear-gradient(160deg, #100F0D, #2A2925); }
+  .ig-tile-7 { background: linear-gradient(135deg, #E9CFC8, #100F0D); }
+  .ig-tile-8 { background: linear-gradient(160deg, #B23A2A, #ECE7DC); }
+  .ig-note {
+    margin-top: 32px;
+    padding: 22px 26px;
+    background: var(--bg-soft);
+    border-left: 3px solid var(--accent);
+    font-size: 15px;
+    color: var(--ink-soft);
+    border-radius: 0 4px 4px 0;
+    max-width: 760px;
+    line-height: 1.65;
+  }
+
+  /* ---------- CONTACT ---------- */
+  .contact {
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-bg-orb {
+    position: absolute;
+    top: -160px; right: -160px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(178, 58, 42, 0.4), transparent 70%);
+    filter: blur(60px);
+    animation: drift1 18s ease-in-out infinite alternate;
+  }
+  .contact-bg-orb-2 {
+    position: absolute;
+    bottom: -160px; left: -160px;
+    width: 480px; height: 480px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(217, 119, 87, 0.3), transparent 70%);
+    filter: blur(60px);
+    animation: drift2 24s ease-in-out infinite alternate;
+  }
+  .contact .section-label { color: var(--accent-2); }
+  .contact .section-label::before { background: var(--accent-2); }
+  .contact .section-title { color: var(--paper); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 80px;
+    align-items: start;
+    position: relative;
+    z-index: 3;
+  }
+  @media (max-width: 900px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 48px; }
+  }
+  .contact-intro {
+    font-size: 20px;
+    color: rgba(250, 248, 243, 0.85);
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+  .contact-list {
+    list-style: none;
+  }
+  .contact-list li {
+    padding: 26px 0;
+    border-bottom: 1px solid rgba(250, 248, 243, 0.14);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+  .contact-list li:first-child { padding-top: 0; }
+  .contact-key {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: rgba(250, 248, 243, 0.55);
+  }
+  .contact-val {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-style: italic;
+    color: var(--paper);
+  }
+  .contact-cta-block {
+    background: rgba(250, 248, 243, 0.05);
+    border: 1px solid rgba(250, 248, 243, 0.14);
+    padding: 44px;
+    border-radius: 6px;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-cta-block::before {
+    content: "";
+    position: absolute;
+    top: -2px; left: -2px; right: -2px; bottom: -2px;
+    background: linear-gradient(135deg, var(--accent), transparent, var(--accent-2));
+    border-radius: 6px;
+    z-index: -1;
+    opacity: 0.4;
+    animation: border-spin 6s linear infinite;
+  }
+  @keyframes border-spin {
+    0% { filter: hue-rotate(0deg); }
+    100% { filter: hue-rotate(360deg); }
+  }
+  .contact-cta-title {
+    font-family: var(--serif);
+    font-size: 34px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+    color: var(--paper);
+  }
+  .contact-cta-text {
+    color: rgba(250, 248, 243, 0.78);
+    font-size: 16px;
+    margin-bottom: 28px;
+    line-height: 1.7;
+  }
+  .btn-light {
+    background: var(--paper);
+    color: var(--ink);
+  }
+  .btn-light:hover {
+    background: var(--accent);
+    color: var(--paper);
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--ink);
+    color: rgba(250, 248, 243, 0.55);
+    border-top: 1px solid rgba(250, 248, 243, 0.08);
+    padding: 44px 0;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+  }
+  .footer-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-logo {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 22px;
+    color: var(--paper);
+  }
+
+  /* ---------- REVEAL ANIMATIONS ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .9s cubic-bezier(0.22, 1, 0.36, 1), transform .9s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-left { transform: translateX(-40px); }
+  .reveal-left.visible { transform: translateX(0); }
+  .stagger > * { transition-delay: 0s; }
+  .stagger.visible > *:nth-child(1) { transition-delay: 0.05s; }
+  .stagger.visible > *:nth-child(2) { transition-delay: 0.12s; }
+  .stagger.visible > *:nth-child(3) { transition-delay: 0.2s; }
+  .stagger.visible > *:nth-child(4) { transition-delay: 0.28s; }
+  .stagger.visible > *:nth-child(5) { transition-delay: 0.36s; }
+  .stagger.visible > *:nth-child(6) { transition-delay: 0.44s; }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav id="navbar">
-  <a class="nav-logo" href="#home">BL<span>.</span></a>
-  <ul class="nav-links">
-    <li><a href="#services">Services</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#experience">Experience</a></li>
-    <li><a href="#contact" class="nav-cta">Get in Touch</a></li>
-  </ul>
+<!-- Ambient background -->
+<div class="ambient" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+<div class="grain" aria-hidden="true"></div>
+<div class="scroll-beam" id="scrollBeam"></div>
+<div class="side-ornament" aria-hidden="true">
+  <span class="side-dot" data-section="home"></span>
+  <span class="side-dot" data-section="services"></span>
+  <span class="side-dot" data-section="about"></span>
+  <span class="side-dot" data-section="experience"></span>
+  <span class="side-dot" data-section="instagram"></span>
+  <span class="side-dot" data-section="contact"></span>
+</div>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo">Brendan Lam</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#instagram">Instagram</a></li>
+    </ul>
+    <a href="#contact" class="nav-cta">Get in touch &rarr;</a>
+  </div>
 </nav>
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-
-  <div class="hero-content">
-    <p class="hero-eyebrow">Sydney-Based Marketing Specialist</p>
-    <h1 class="hero-h1">We Turn <span class="highlight">Strategy</span><br>Into Revenue</h1>
-    <p class="hero-sub"><span class="typed"></span></p>
+  <div class="container">
+    <span class="eyebrow"><span class="eyebrow-dot"></span> Sydney-based &middot; Marketing &amp; Sales &middot; Available</span>
+    <h1 class="hero-title">
+      Turning <em>strategy</em><br>
+      into revenue.
+    </h1>
+    <p class="hero-sub">
+      I help businesses across Sydney grow with thoughtful campaigns, structured sales systems, and AI-powered insight &mdash; built around real numbers, not guesswork.
+    </p>
     <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">Start a Project</a>
-      <a href="#services" class="btn-outline">Explore Services</a>
+      <a href="#contact" class="btn btn-primary">Start a project <span class="arrow">&rarr;</span></a>
+      <a href="#services" class="btn btn-secondary">Explore services</a>
     </div>
-    <div class="hero-stats">
-      <div>
-        <div class="hs-num">4+</div>
-        <div class="hs-label">Years in Sales</div>
+
+    <div class="hero-stats stagger">
+      <div class="stat">
+        <div class="stat-beacon"><span class="stat-num" data-target="4" data-suffix="+">0+</span></div>
+        <div class="stat-label">Years in Sales</div>
       </div>
-      <div>
-        <div class="hs-num">3×</div>
-        <div class="hs-label">Google AI Certified</div>
+      <div class="stat">
+        <div class="stat-beacon"><span class="stat-num" data-target="3" data-suffix="&times;">0&times;</span></div>
+        <div class="stat-label">Google AI Certified</div>
       </div>
-      <div>
-        <div class="hs-num">2</div>
-        <div class="hs-label">Languages</div>
+      <div class="stat">
+        <div class="stat-beacon"><span class="stat-num" data-target="2">0</span></div>
+        <div class="stat-label">Languages</div>
       </div>
-    </div>
-  </div>
-
-  <div class="scroll-hint">Scroll</div>
-</section>
-
-<!-- SERVICES -->
-<section id="services">
-  <p class="eyebrow">What We Do</p>
-  <h2 class="sec-title">End-to-End Marketing<br>&amp; Sales Solutions</h2>
-  <p class="sec-sub">From strategy to execution — delivering campaigns and sales systems that grow your business and convert.</p>
-
-  <div class="services-grid">
-    <div class="svc-card">
-      <span class="svc-icon">📈</span>
-      <h3>Sales Strategy &amp; Growth</h3>
-      <p>Commission-based sales frameworks, KPI systems, and performance tracking that consistently hit targets and scale revenue.</p>
-    </div>
-    <div class="svc-card">
-      <span class="svc-icon">🎯</span>
-      <h3>Digital Marketing</h3>
-      <p>Campaign management, audience targeting, and multi-channel marketing that puts your brand in front of the right people.</p>
-    </div>
-    <div class="svc-card">
-      <span class="svc-icon">🤖</span>
-      <h3>AI-Powered Analytics</h3>
-      <p>Leveraging Google Generative AI and data tools to uncover insights, automate workflows, and fuel smarter decisions.</p>
-    </div>
-    <div class="svc-card">
-      <span class="svc-icon">🎬</span>
-      <h3>Content Creation</h3>
-      <p>Short-form video editing and social media content tailored to your brand voice and engineered for engagement.</p>
-    </div>
-    <div class="svc-card">
-      <span class="svc-icon">🏷️</span>
-      <h3>Brand Development</h3>
-      <p>Building and scaling brand identities through creative digital assets, consistent messaging, and strategic positioning.</p>
-    </div>
-    <div class="svc-card">
-      <span class="svc-icon">🌏</span>
-      <h3>Multilingual Outreach</h3>
-      <p>Reaching English and Vietnamese-speaking markets with culturally nuanced communication that resonates and converts.</p>
-    </div>
-  </div>
-</section>
-
-<!-- STATS STRIPE -->
-<div class="stats-stripe">
-  <div class="stats-inner">
-    <div class="stat-item">
-      <span class="stat-big" data-target="4">0</span><span class="stat-suf">+</span>
-      <div class="stat-lbl">Years in Sales</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-big" data-target="3">0</span><span class="stat-suf">×</span>
-      <div class="stat-lbl">Google AI Certifications</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-big" data-target="2">0</span>
-      <div class="stat-lbl">Languages Spoken</div>
-    </div>
-    <div class="stat-item">
-      <span class="stat-big" data-target="100">0</span><span class="stat-suf">%</span>
-      <div class="stat-lbl">Commitment to Results</div>
-    </div>
-  </div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="about-left">
-      <p class="eyebrow">About</p>
-      <h2 class="sec-title">Meet Brendan Lam</h2>
-      <p class="about-bio">
-        Brendan Lam is a <strong>Sydney-based marketing specialist and sales strategist</strong> with over 4 years of hands-on experience driving measurable results. With a deep understanding of consumer psychology, data-driven marketing, and cutting-edge AI tools, Brendan helps businesses grow their reach and revenue.
-      </p>
-      <p class="about-bio">
-        Fluent in <strong>English and Vietnamese</strong>, Brendan brings a unique multicultural perspective to every project — enabling campaigns that genuinely connect with diverse audiences across Sydney and beyond.
-      </p>
-      <div class="cred-list">
-        <div class="cred-item"><div class="cred-dot"></div>Sales Strategy &amp; KPI Management</div>
-        <div class="cred-item"><div class="cred-dot"></div>Marketing Operations &amp; Campaigns</div>
-        <div class="cred-item"><div class="cred-dot"></div>AI Tools &amp; Data Analytics</div>
-        <div class="cred-item"><div class="cred-dot"></div>Leadership &amp; Team Development</div>
-      </div>
-      <a href="#contact" class="btn-primary">Work With Me</a>
-    </div>
-    <div class="about-right">
-      <div class="about-visual">
-        <div class="pill-grid">
-          <span class="pill">Sales Strategy</span>
-          <span class="pill">KPI Tracking</span>
-          <span class="pill">Google AI</span>
-          <span class="pill">Campaign Mgmt</span>
-          <span class="pill">Excel &amp; Data</span>
-          <span class="pill">Video Editing</span>
-          <span class="pill">Social Media</span>
-          <span class="pill">Lead Generation</span>
-          <span class="pill">Brand Growth</span>
-          <span class="pill">Vietnamese</span>
-          <span class="pill">Cold Calling</span>
-          <span class="pill">Mentorship</span>
-        </div>
-        <div class="gcerts">
-          <div class="gcerts-title">Google Cloud Certified</div>
-          <div class="gcert">
-            <div class="gcert-dot"></div>
-            Build &amp; Modernise Apps with Generative AI
-          </div>
-          <div class="gcert">
-            <div class="gcert-dot"></div>
-            Integrate Generative AI into Data Workflows
-          </div>
-          <div class="gcert">
-            <div class="gcert-dot"></div>
-            Deploy and Manage Generative AI Models
-          </div>
-        </div>
+      <div class="stat">
+        <div class="stat-beacon"><span class="stat-num">&infin;</span></div>
+        <div class="stat-label">Ideas Tested</div>
       </div>
     </div>
+
+    <div class="floating-tag">Available for projects</div>
   </div>
 </section>
 
 <!-- MARQUEE -->
-<div class="marquee-wrap">
+<div class="marquee">
   <div class="marquee-track">
-    <span class="m-item">Sales Strategy</span>
-    <span class="m-item">Digital Marketing</span>
-    <span class="m-item">AI Analytics</span>
-    <span class="m-item">Brand Development</span>
-    <span class="m-item">Content Creation</span>
-    <span class="m-item">Lead Generation</span>
-    <span class="m-item">KPI Management</span>
-    <span class="m-item">Campaign Management</span>
-    <span class="m-item">Social Media</span>
-    <span class="m-item">Google Cloud AI</span>
-    <span class="m-item">Multilingual Marketing</span>
-    <span class="m-item">Sales Strategy</span>
-    <span class="m-item">Digital Marketing</span>
-    <span class="m-item">AI Analytics</span>
-    <span class="m-item">Brand Development</span>
-    <span class="m-item">Content Creation</span>
-    <span class="m-item">Lead Generation</span>
-    <span class="m-item">KPI Management</span>
-    <span class="m-item">Campaign Management</span>
-    <span class="m-item">Social Media</span>
-    <span class="m-item">Google Cloud AI</span>
-    <span class="m-item">Multilingual Marketing</span>
+    <span class="marquee-item">Sales Strategy</span>
+    <span class="marquee-item">Digital Marketing</span>
+    <span class="marquee-item">AI Analytics</span>
+    <span class="marquee-item">Brand Development</span>
+    <span class="marquee-item">Content Creation</span>
+    <span class="marquee-item">Multilingual Outreach</span>
+    <span class="marquee-item">Sales Strategy</span>
+    <span class="marquee-item">Digital Marketing</span>
+    <span class="marquee-item">AI Analytics</span>
+    <span class="marquee-item">Brand Development</span>
+    <span class="marquee-item">Content Creation</span>
+    <span class="marquee-item">Multilingual Outreach</span>
   </div>
 </div>
 
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-decor top-right">
+    <svg class="spin-slow" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="90" fill="none" stroke="#B23A2A" stroke-width="0.5" stroke-dasharray="2 4"/>
+      <circle cx="100" cy="100" r="70" fill="none" stroke="#B23A2A" stroke-width="0.5"/>
+      <circle cx="100" cy="100" r="50" fill="none" stroke="#B23A2A" stroke-width="0.5" stroke-dasharray="4 2"/>
+    </svg>
+  </div>
+  <div class="container">
+    <span class="section-label">What I Do</span>
+    <h2 class="section-title">End-to-end <em>marketing &amp; sales</em> built to convert.</h2>
+
+    <div class="chips">
+      <span class="chip active" data-filter="all">All</span>
+      <span class="chip" data-filter="sales">Sales</span>
+      <span class="chip" data-filter="marketing">Marketing</span>
+      <span class="chip" data-filter="ai">AI &amp; Data</span>
+      <span class="chip" data-filter="content">Content</span>
+      <span class="chip" data-filter="brand">Brand</span>
+    </div>
+
+    <div class="services-grid stagger">
+      <div class="service-card" data-tag="sales">
+        <div class="service-num">01 / Sales</div>
+        <h3 class="service-title">Sales strategy &amp; growth</h3>
+        <p class="service-desc">Commission-based sales frameworks, KPI systems, and performance tracking that consistently hit targets and scale revenue.</p>
+        <span class="service-tag">Strategy &middot; KPI &middot; Pipeline</span>
+      </div>
+      <div class="service-card" data-tag="marketing">
+        <div class="service-num">02 / Marketing</div>
+        <h3 class="service-title">Digital marketing</h3>
+        <p class="service-desc">Campaign management, audience targeting, and multi-channel marketing that puts your brand in front of the right people.</p>
+        <span class="service-tag">Campaigns &middot; Audience &middot; Channels</span>
+      </div>
+      <div class="service-card" data-tag="ai">
+        <div class="service-num">03 / AI &amp; Data</div>
+        <h3 class="service-title">AI-powered analytics</h3>
+        <p class="service-desc">Leveraging Google Generative AI and data tools to uncover insights, automate workflows, and fuel smarter decisions.</p>
+        <span class="service-tag">Gen AI &middot; Automation &middot; Insights</span>
+      </div>
+      <div class="service-card" data-tag="content">
+        <div class="service-num">04 / Content</div>
+        <h3 class="service-title">Content creation</h3>
+        <p class="service-desc">Short-form video editing and social media content tailored to your brand voice and engineered for engagement.</p>
+        <span class="service-tag">Video &middot; Social &middot; Storytelling</span>
+      </div>
+      <div class="service-card" data-tag="brand">
+        <div class="service-num">05 / Brand</div>
+        <h3 class="service-title">Brand development</h3>
+        <p class="service-desc">Building and scaling brand identities through creative digital assets, consistent messaging, and strategic positioning.</p>
+        <span class="service-tag">Identity &middot; Messaging &middot; Positioning</span>
+      </div>
+      <div class="service-card" data-tag="marketing">
+        <div class="service-num">06 / Reach</div>
+        <h3 class="service-title">Multilingual outreach</h3>
+        <p class="service-desc">Reaching English and Vietnamese-speaking markets with culturally nuanced communication that resonates and converts.</p>
+        <span class="service-tag">EN &middot; VN &middot; Cross-cultural</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <svg class="about-bg-svg spin-reverse" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="180" cy="180" r="160" fill="none" stroke="#B23A2A" stroke-width="1" stroke-dasharray="6 8"/>
+    <circle cx="180" cy="180" r="120" fill="none" stroke="#B23A2A" stroke-width="1"/>
+    <circle cx="180" cy="180" r="80" fill="none" stroke="#B23A2A" stroke-width="1" stroke-dasharray="2 6"/>
+  </svg>
+  <div class="container">
+    <span class="section-label">About</span>
+    <h2 class="section-title">A marketer who <em>thinks like a salesperson</em>.</h2>
+
+    <div class="about-grid">
+      <div class="about-portrait">
+        <div class="bl-beacon-wrap">
+          <span class="bl-ring bl-ring-1"></span>
+          <span class="bl-ring bl-ring-2"></span>
+          <span class="bl-ring bl-ring-3"></span>
+          <span class="bl-ring bl-ring-4"></span>
+          <span class="portrait-monogram">BL</span>
+        </div>
+        <span class="portrait-tag-2">Sydney &middot; 2026</span>
+        <span class="portrait-label">&#128205; Sydney, AU</span>
+      </div>
+      <div class="about-text">
+        <p>I&rsquo;m <strong>Brendan Lam</strong> &mdash; a Sydney-based marketing specialist and sales strategist with over four years of hands-on experience driving <em class="highlight">measurable results</em>. I work at the intersection of consumer psychology, data, and emerging AI tools to help businesses grow their reach and revenue.</p>
+        <p>Fluent in <strong>English and Vietnamese</strong>, I bring a multicultural perspective to every project &mdash; building campaigns that genuinely connect with diverse audiences across Sydney and beyond.</p>
+        <p>Whether it&rsquo;s structuring a sales floor, launching a social campaign, or deploying generative AI into a data workflow, my work always starts with one question: <em class="highlight">what&rsquo;s the number we&rsquo;re trying to move?</em></p>
+        <div class="about-skills">
+          <span class="skill-pill">Sales Strategy</span>
+          <span class="skill-pill">KPI Tracking</span>
+          <span class="skill-pill">Google AI</span>
+          <span class="skill-pill">Campaign Mgmt</span>
+          <span class="skill-pill">Excel &amp; Data</span>
+          <span class="skill-pill">Video Editing</span>
+          <span class="skill-pill">Social Media</span>
+          <span class="skill-pill">Lead Generation</span>
+          <span class="skill-pill">Brand Growth</span>
+          <span class="skill-pill">Vietnamese</span>
+          <span class="skill-pill">Cold Calling</span>
+          <span class="skill-pill">Mentorship</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- EXPERIENCE -->
 <section id="experience">
-  <p class="eyebrow">Track Record</p>
-  <h2 class="sec-title">Experience That<br>Speaks for Itself</h2>
-  <p class="sec-sub">Real results across sales, marketing operations, and client-facing roles.</p>
+  <div class="container">
+    <span class="section-label">Track Record</span>
+    <h2 class="section-title">Experience that <em>speaks for itself</em>.</h2>
 
-  <div class="exp-list">
-    <div class="exp-entry">
-      <div class="exp-period">2022 – Present</div>
-      <div class="exp-role">Senior Sales &amp; Marketing Representative</div>
-      <div class="exp-co">Next Level Paintball · Sydney</div>
-      <ul class="exp-pts">
-        <li>Consistently hit and exceeded sales KPI targets, earning multiple promotions within the first year</li>
-        <li>Onboarded and mentored new starters through target-setting frameworks and regular performance reviews</li>
-        <li>Developed leadership skills by training and guiding a growing sales team</li>
-        <li>Applied creative problem-solving to navigate unprecedented business challenges</li>
-      </ul>
+    <div class="exp-list">
+      <div class="exp-item">
+        <div class="exp-year">2022 &ndash; Present</div>
+        <div>
+          <h3 class="exp-role">Senior Sales &amp; Marketing Representative</h3>
+          <p class="exp-company">Next Level Paintball &middot; Sydney</p>
+          <ul class="exp-bullets">
+            <li>Consistently exceeded sales KPI targets, earning multiple promotions in the first year</li>
+            <li>Onboarded and mentored new starters through target-setting frameworks and performance reviews</li>
+            <li>Developed leadership skills by training and guiding a growing sales team</li>
+            <li>Applied creative problem-solving to navigate unprecedented business challenges</li>
+          </ul>
+        </div>
+        <div class="exp-arrow">&rarr;</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">2024 &ndash; 2025</div>
+        <div>
+          <h3 class="exp-role">Admin, Sales &amp; Marketing Associate</h3>
+          <p class="exp-company">Sydney Sprouts</p>
+          <ul class="exp-bullets">
+            <li>Managed day-to-day marketing operations for the business</li>
+            <li>Designed digital tools and creative assets to support business growth</li>
+          </ul>
+        </div>
+        <div class="exp-arrow">&rarr;</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">2024</div>
+        <div>
+          <h3 class="exp-role">Sales Associate</h3>
+          <p class="exp-company">TC Enterprises</p>
+          <ul class="exp-bullets">
+            <li>Cold calling and targeted lead generation</li>
+            <li>Appointment setting for a structured sales pipeline</li>
+          </ul>
+        </div>
+        <div class="exp-arrow">&rarr;</div>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-year">Certified</div>
+        <div>
+          <h3 class="exp-role">Google Cloud &middot; Generative AI</h3>
+          <p class="exp-company">3&times; Certified</p>
+          <ul class="exp-bullets">
+            <li>Build &amp; Modernise Apps with Generative AI</li>
+            <li>Integrate Generative AI into Data Workflows</li>
+            <li>Deploy and Manage Generative AI Models</li>
+          </ul>
+        </div>
+        <div class="exp-arrow">&#10022;</div>
+      </div>
     </div>
-    <div class="exp-entry">
-      <div class="exp-period">2024 – 2025</div>
-      <div class="exp-role">Admin, Sales &amp; Marketing Associate</div>
-      <div class="exp-co">Sydney Sprouts</div>
-      <ul class="exp-pts">
-        <li>Managed day-to-day marketing operations for the business</li>
-        <li>Designed digital tools and creative assets to support business growth</li>
-      </ul>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram" class="ig">
+  <div class="container">
+    <div class="ig-header">
+      <div>
+        <span class="section-label">Behind the Scenes</span>
+        <h2 class="section-title" style="margin-bottom: 12px;">From the <em>feed</em>.</h2>
+        <a href="https://instagram.com/brendan_lam1" target="_blank" rel="noopener" class="ig-handle">@brendan_lam1 &nearr;</a>
+      </div>
+      <a href="https://instagram.com/brendan_lam1" target="_blank" rel="noopener" class="btn btn-secondary">Follow on Instagram</a>
     </div>
-    <div class="exp-entry">
-      <div class="exp-period">2024</div>
-      <div class="exp-role">Sales Associate</div>
-      <div class="exp-co">TC Enterprises</div>
-      <ul class="exp-pts">
-        <li>Cold calling and targeted lead generation</li>
-        <li>Appointment setting for a structured sales pipeline</li>
-      </ul>
+
+    <div class="ig-grid stagger">
+      <div class="ig-tile ig-tile-1"><span class="ig-icon">01</span></div>
+      <div class="ig-tile ig-tile-2"><span class="ig-icon">02</span></div>
+      <div class="ig-tile ig-tile-3"><span class="ig-icon">03</span></div>
+      <div class="ig-tile ig-tile-4"><span class="ig-icon">04</span></div>
+      <div class="ig-tile ig-tile-5"><span class="ig-icon">05</span></div>
+      <div class="ig-tile ig-tile-6"><span class="ig-icon">06</span></div>
+      <div class="ig-tile ig-tile-7"><span class="ig-icon">07</span></div>
+      <div class="ig-tile ig-tile-8"><span class="ig-icon">08</span></div>
+    </div>
+
+    <div class="ig-note">
+      <strong>Note:</strong> these are styled placeholders. To pull in your actual Instagram posts automatically, you can use a free embed widget like <em>Behold.so</em> or <em>Elfsight</em>, or upload the images you&rsquo;d like to feature directly. Share the posts you want highlighted and I&rsquo;ll wire them in.
     </div>
   </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
-  <div class="contact-grid">
-    <div class="contact-left">
-      <p class="eyebrow">Contact</p>
-      <h2 class="sec-title">Let's Build<br>Something Great</h2>
-      <p class="about-bio" style="margin-bottom:2rem;">Open to marketing projects, sales consulting, and brand growth opportunities across Sydney. Reach out — I'd love to hear what you're working on.</p>
-      <div class="contact-detail">
-        <div class="c-icon">📧</div>
-        <span>brendan.lam3@gmail.com</span>
+<section id="contact" class="contact">
+  <div class="contact-bg-orb"></div>
+  <div class="contact-bg-orb-2"></div>
+  <div class="container">
+    <span class="section-label">Let&rsquo;s Talk</span>
+    <h2 class="section-title">Let&rsquo;s build<br>something <em>great</em>.</h2>
+
+    <div class="contact-grid">
+      <div>
+        <p class="contact-intro">
+          Open to marketing projects, sales consulting, and brand growth opportunities across Sydney. Reach out &mdash; I&rsquo;d love to hear what you&rsquo;re working on.
+        </p>
+        <ul class="contact-list">
+          <li>
+            <span class="contact-key">Email</span>
+            <span class="contact-val">brendan.lam3@gmail.com</span>
+          </li>
+          <li>
+            <span class="contact-key">Location</span>
+            <span class="contact-val">Sydney, NSW</span>
+          </li>
+          <li>
+            <span class="contact-key">Instagram</span>
+            <span class="contact-val">@brendan_lam1</span>
+          </li>
+          <li>
+            <span class="contact-key">Availability</span>
+            <span class="contact-val">Open for projects</span>
+          </li>
+        </ul>
       </div>
-      <div class="contact-detail">
-        <div class="c-icon">📍</div>
-        <span>Sydney, NSW, Australia</span>
+
+      <div class="contact-cta-block">
+        <h3 class="contact-cta-title">Have a project in mind?</h3>
+        <p class="contact-cta-text">Send a quick note about what you&rsquo;re working on &mdash; campaign, sales system, brand refresh, anything &mdash; and I&rsquo;ll get back within 48 hours.</p>
+        <a href="mailto:brendan.lam3@gmail.com" class="btn btn-light">Send a message <span class="arrow">&rarr;</span></a>
       </div>
-    </div>
-    <div class="contact-right">
-      <form class="c-form" onsubmit="handleSubmit(event)">
-        <input type="text"  name="name"    placeholder="Your name"                  required />
-        <input type="email" name="email"   placeholder="Your email"                 required />
-        <textarea           name="message" placeholder="Tell me about your project"  required></textarea>
-        <button type="submit">Send Message →</button>
-      </form>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <a class="footer-logo" href="#home">BL<span>.</span></a>
-  <span>© 2026 Brendan Lam · Marketing &amp; Sales Specialist · Sydney, AU</span>
-  <span>brendanlam.com.au</span>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-logo">Brendan Lam</span>
+      <span>&copy; 2026 &middot; Marketing &amp; Sales Specialist &middot; Sydney, AU</span>
+      <span>brendanlam.com.au</span>
+    </div>
+  </div>
 </footer>
 
 <script>
-/* ── TYPEWRITER ── */
-const phrases = [
-  'Sales Strategy & Growth',
-  'Digital Marketing Campaigns',
-  'AI-Powered Analytics',
-  'Brand Development',
-  'Content That Converts',
-];
-let pi = 0, ci = 0, deleting = false;
-const typedEl = document.querySelector('.typed');
+  // ===== Filter chips =====
+  const chips = document.querySelectorAll('.chip');
+  const cards = document.querySelectorAll('.service-card');
+  chips.forEach(c => c.addEventListener('click', () => {
+    chips.forEach(x => x.classList.remove('active'));
+    c.classList.add('active');
+    const f = c.dataset.filter;
+    cards.forEach(card => {
+      const show = (f === 'all' || card.dataset.tag === f);
+      card.style.display = show ? '' : 'none';
+    });
+  }));
 
-function type() {
-  const word = phrases[pi];
-  typedEl.textContent = word.slice(0, deleting ? --ci : ++ci);
-  let delay = deleting ? 45 : 85;
-  if (!deleting && ci === word.length)  { delay = 2200; deleting = true; }
-  else if (deleting && ci === 0)        { deleting = false; pi = (pi + 1) % phrases.length; delay = 350; }
-  setTimeout(type, delay);
-}
-setTimeout(type, 1600);
+  // ===== Reveal on scroll =====
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        e.target.querySelectorAll('.stat-num[data-target]').forEach(el => animateCount(el));
+      }
+    });
+  }, { threshold: 0.15 });
 
-/* ── NAV SCROLL STYLE ── */
-const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.classList.toggle('scrolled', window.scrollY > 55);
-}, { passive: true });
+  document.querySelectorAll('section, .stagger, .service-card, .exp-item, .ig-tile')
+    .forEach(s => { s.classList.add('reveal'); io.observe(s); });
 
-/* ── PARALLAX BLOBS ── */
-window.addEventListener('scroll', () => {
-  const y = window.scrollY;
-  const b1 = document.querySelector('.blob-1');
-  const b2 = document.querySelector('.blob-2');
-  if (b1) b1.style.transform = `translateY(${y * 0.14}px)`;
-  if (b2) b2.style.transform = `translateY(${y * -0.09}px)`;
-}, { passive: true });
-
-/* ── SCROLL-TRIGGERED REVEAL ── */
-const revealEls = document.querySelectorAll(
-  '.svc-card, .stat-item, .about-left, .about-right, .exp-entry, .contact-left, .contact-right'
-);
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    if (el.classList.contains('svc-card')) {
-      const cards = [...document.querySelectorAll('.svc-card')];
-      el.style.transitionDelay = `${cards.indexOf(el) * 0.09}s`;
+  // ===== Number count-up =====
+  function animateCount(el) {
+    if (el.dataset.counted) return;
+    el.dataset.counted = "1";
+    const target = parseFloat(el.dataset.target);
+    const suffix = el.dataset.suffix || "";
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const eased = 1 - Math.pow(1 - t, 3);
+      const val = Math.round(target * eased);
+      el.textContent = val + suffix;
+      if (t < 1) requestAnimationFrame(tick);
+      else el.textContent = target + suffix;
     }
-    el.classList.add('visible');
-    revealObserver.unobserve(el);
-  });
-}, { threshold: 0.1 });
-revealEls.forEach(el => revealObserver.observe(el));
+    requestAnimationFrame(tick);
+  }
 
-/* ── COUNTER ANIMATION ── */
-const counterEls = document.querySelectorAll('.stats-stripe .stat-big[data-target]');
-const counterObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (!entry.isIntersecting) return;
-    const el = entry.target;
-    const target = +el.dataset.target;
-    const step = Math.max(16, Math.floor(1600 / target));
-    let current = 0;
-    const tick = setInterval(() => {
-      current = Math.min(current + 1, target);
-      el.textContent = current;
-      if (current >= target) clearInterval(tick);
-    }, step);
-    counterObserver.unobserve(el);
-  });
-}, { threshold: 0.3 });
-counterEls.forEach(el => counterObserver.observe(el));
+  // ===== Scroll beam (progress) =====
+  const beam = document.getElementById('scrollBeam');
+  function updateBeam() {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    beam.style.width = pct + '%';
+  }
+  window.addEventListener('scroll', updateBeam, { passive: true });
+  updateBeam();
 
-/* ── CONTACT FORM ── */
-function handleSubmit(e) {
-  e.preventDefault();
-  const f = e.target;
-  const mailto = `mailto:brendan.lam3@gmail.com?subject=${encodeURIComponent('Project Enquiry from ' + f.name.value)}&body=${encodeURIComponent(f.message.value + '\n\nFrom: ' + f.name.value + '\nEmail: ' + f.email.value)}`;
-  window.location.href = mailto;
-}
+  // ===== Side dot indicator =====
+  const dots = document.querySelectorAll('.side-dot');
+  const sections = ['home', 'services', 'about', 'experience', 'instagram', 'contact']
+    .map(id => document.getElementById(id));
+  function updateDots() {
+    const y = window.scrollY + window.innerHeight / 2;
+    let active = 0;
+    sections.forEach((s, i) => {
+      if (s && s.offsetTop <= y) active = i;
+    });
+    dots.forEach((d, i) => d.classList.toggle('active', i === active));
+  }
+  window.addEventListener('scroll', updateDots, { passive: true });
+  updateDots();
+
+  // ===== Subtle parallax on blobs =====
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    document.querySelectorAll('.blob').forEach((b, i) => {
+      b.style.translate = '0 ' + (y * (0.05 + i * 0.03)) + 'px';
+    });
+  }, { passive: true });
+
+  // ===== Mouse-follow halo on hero =====
+  const hero = document.querySelector('.hero');
+  if (hero) {
+    const halo = document.createElement('div');
+    halo.style.cssText = [
+      'position:absolute', 'width:400px', 'height:400px', 'border-radius:50%',
+      'background:radial-gradient(circle,rgba(178,58,42,0.12),transparent 70%)',
+      'pointer-events:none', 'z-index:0', 'transform:translate(-50%,-50%)',
+      'transition:opacity .3s ease', 'opacity:0', 'filter:blur(20px)'
+    ].join(';');
+    hero.appendChild(halo);
+    hero.addEventListener('mousemove', e => {
+      const r = hero.getBoundingClientRect();
+      halo.style.left = (e.clientX - r.left) + 'px';
+      halo.style.top  = (e.clientY - r.top)  + 'px';
+      halo.style.opacity = '1';
+    });
+    hero.addEventListener('mouseleave', () => halo.style.opacity = '0');
+  }
 </script>
 
 </body>
