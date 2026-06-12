@@ -52,7 +52,6 @@
     z-index: 2;
   }
 
-  /* Dot-grid grain overlay */
   .grain {
     position: fixed; inset: 0; z-index: 1; pointer-events: none;
     background-image: radial-gradient(circle at 1px 1px, rgba(157,176,206,0.08) 1px, transparent 0);
@@ -60,7 +59,6 @@
     opacity: 1;
   }
 
-  /* Scroll progress beam */
   .scroll-beam {
     position: fixed; top: 0; left: 0;
     height: 2px; width: 0%;
@@ -70,7 +68,6 @@
     transition: width .1s ease-out;
   }
 
-  /* Side dots */
   .side-ornament {
     position: fixed; right: 24px; top: 50%;
     transform: translateY(-50%);
@@ -94,7 +91,6 @@
   }
   @media (max-width: 720px) { .side-ornament { display: none; } }
 
-  /* ── NAV ── */
   .nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     backdrop-filter: blur(20px) saturate(160%);
@@ -132,7 +128,6 @@
   .nav-cta:hover { background: var(--accent); color: var(--ink); border-color: var(--accent); }
   @media (max-width: 720px) { .nav-links { display: none; } }
 
-  /* ── BEACON RIPPLES ── */
   .beacon { position: relative; display: inline-block; }
   .beacon::before, .beacon::after {
     content: ""; position: absolute; inset: -8px;
@@ -147,19 +142,16 @@
     100% { transform: scale(2.4); opacity: 0; }
   }
 
-  /* ── HERO ── */
   .hero {
     position: relative; overflow: hidden;
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: flex-end;
   }
-  /* WebGL canvas fills hero */
   #hero-canvas {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     display: block; z-index: 0;
   }
-  /* Left-heavy gradient for text legibility */
   .hero::before {
     content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
     background:
@@ -249,7 +241,6 @@
   }
   @media (max-width: 900px) { .floating-tag { display: none; } }
 
-  /* ── MARQUEE ── */
   .marquee {
     background: var(--bg-soft); padding: 26px 0; overflow: hidden;
     position: relative; z-index: 2;
@@ -276,7 +267,6 @@
     100% { transform: translateX(-50%); }
   }
 
-  /* ── SECTIONS ── */
   section { padding: 120px 0; position: relative; z-index: 2; }
   .section-label {
     font-family: var(--mono); font-size: 11px; font-weight: 500;
@@ -292,7 +282,6 @@
   }
   .section-title em { font-style: italic; color: var(--accent-2); }
 
-  /* Spinning decoration */
   .section-decor { position: absolute; pointer-events: none; z-index: 1; }
   .section-decor.top-right { top: 40px; right: -80px; width: 200px; height: 200px; opacity: 0.5; }
   .section-decor svg { width: 100%; height: 100%; }
@@ -300,7 +289,6 @@
   .spin-reverse { animation: spin 60s linear infinite reverse; transform-origin: center; }
   @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-  /* ── FILTER CHIPS ── */
   .chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 56px; }
   .chip {
     padding: 10px 20px; border: 1px solid var(--line); border-radius: 6px;
@@ -312,7 +300,6 @@
   .chip:hover { border-color: var(--accent); color: var(--accent-2); transform: translateY(-1px); }
   .chip.active { background: var(--accent); color: var(--ink); border-color: var(--accent); }
 
-  /* ── SERVICES ── */
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 20px; }
   .service-card {
     background: var(--bg-soft); border: 1px solid var(--line);
@@ -345,7 +332,6 @@
   .service-desc  { color: var(--ink-soft); font-size: 15.5px; line-height: 1.7; }
   .service-tag   { display: inline-block; margin-top: 24px; font-family: var(--mono); font-size: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent-2); }
 
-  /* ── ABOUT ── */
   .about {
     background: var(--bg-soft);
     border-top: 1px solid var(--line);
@@ -421,7 +407,6 @@
   }
   .skill-pill:hover { border-color: var(--accent); color: var(--accent-2); transform: translateY(-1px); }
 
-  /* ── EXPERIENCE ── */
   .exp-list { border-top: 1px solid var(--line); position: relative; }
   .exp-item {
     display: grid; grid-template-columns: 200px 1fr auto;
@@ -450,7 +435,6 @@
   .exp-bullets li::before { content: "→"; position: absolute; left: 0; color: var(--accent-2); }
   .exp-arrow { font-family: var(--serif); font-size: 34px; color: var(--muted); transition: all .3s ease; }
 
-  /* ── INSTAGRAM ── */
   .ig { background: var(--bg-soft); border-top: 1px solid var(--line); }
   .ig-header { display: flex; justify-content: space-between; align-items: end; margin-bottom: 56px; flex-wrap: wrap; gap: 24px; }
   .ig-handle { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--accent-2); }
@@ -480,7 +464,6 @@
     font-size: 14.5px; color: var(--ink-soft); border-radius: 0 4px 4px 0; max-width: 760px; line-height: 1.65;
   }
 
-  /* ── CONTACT ── */
   .contact {
     background: var(--bg); position: relative; overflow: hidden;
   }
@@ -516,7 +499,6 @@
   .btn-light { background: var(--accent); color: var(--ink); }
   .btn-light:hover { background: #1E42D6; box-shadow: 0 8px 30px -8px rgba(43,84,240,0.7); }
 
-  /* ── FOOTER ── */
   footer {
     background: var(--bg); color: var(--ink-soft);
     border-top: 1px solid var(--line);
@@ -525,7 +507,6 @@
   .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; }
   .footer-logo { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--ink); white-space: nowrap !important; min-width: max-content; }
 
-  /* Behold.so Instagram widget theming */
   behold-widget {
     --behold-border-radius: 6px;
     --behold-gap: 14px;
@@ -565,7 +546,6 @@
   </div>
 </nav>
 
-<!-- HERO — WebGL canvas fills the background -->
 <section class="hero" id="home">
   <canvas id="hero-canvas" aria-hidden="true"></canvas>
   <div class="container">
@@ -599,11 +579,9 @@
         <div class="stat-label">Ideas Tested</div>
       </div>
     </div>
-
   </div>
 </section>
 
-<!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
     <span class="marquee-item">Sales Strategy</span>
@@ -621,7 +599,6 @@
   </div>
 </div>
 
-<!-- SERVICES -->
 <section id="services">
   <div class="section-decor top-right">
     <svg class="spin-slow" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
@@ -682,7 +659,6 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="about">
   <svg class="about-bg-svg spin-reverse" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg">
     <circle cx="180" cy="180" r="160" fill="none" stroke="#2B54F0" stroke-width="1" stroke-dasharray="6 8"/>
@@ -727,7 +703,6 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience">
   <div class="container">
     <span class="section-label">Track Record</span>
@@ -788,7 +763,6 @@
   </div>
 </section>
 
-<!-- INSTAGRAM -->
 <section id="instagram" class="ig">
   <div class="container">
     <div class="ig-header">
@@ -799,15 +773,12 @@
       </div>
       <a href="https://instagram.com/lam_on_brands" target="_blank" rel="noopener" class="btn btn-secondary">Follow on Instagram</a>
     </div>
-    <!-- Behold.so Instagram feed — Feed ID: ycqrOkacDMzYLj6Gi76p -->
     <div class="ig-behold-wrap">
       <behold-widget feed-id="ycqrOkacDMzYLj6Gi76p"></behold-widget>
     </div>
-
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact" class="contact">
   <div class="contact-bg-orb"></div>
   <div class="contact-bg-orb-2"></div>
@@ -844,7 +815,6 @@
 </footer>
 
 <script>
-/* ── Filter chips ── */
 const chips = document.querySelectorAll('.chip');
 const cards = document.querySelectorAll('.service-card');
 chips.forEach(c => c.addEventListener('click', () => {
@@ -854,7 +824,6 @@ chips.forEach(c => c.addEventListener('click', () => {
   cards.forEach(card => { card.style.display = (f === 'all' || card.dataset.tag === f) ? '' : 'none'; });
 }));
 
-/* ── Count-up on scroll for stats ── */
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {
     if (e.isIntersecting) {
@@ -865,7 +834,6 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.hero-stats').forEach(s => io.observe(s));
 document.getElementById('home').classList.add('visible');
 
-/* ── Count-up ── */
 function animateCount(el) {
   if (el.dataset.counted) return;
   el.dataset.counted = "1";
@@ -881,7 +849,6 @@ function animateCount(el) {
   })(start);
 }
 
-/* ── Scroll beam ── */
 const beam = document.getElementById('scrollBeam');
 function updateBeam() {
   const h = document.documentElement;
@@ -890,7 +857,6 @@ function updateBeam() {
 window.addEventListener('scroll', updateBeam, { passive: true });
 updateBeam();
 
-/* ── Side dots ── */
 const dots = document.querySelectorAll('.side-dot');
 const secs = ['home','services','about','experience','instagram','contact'].map(id => document.getElementById(id));
 function updateDots() {
@@ -902,7 +868,6 @@ function updateDots() {
 window.addEventListener('scroll', updateDots, { passive: true });
 updateDots();
 
-/* ── WebGL liquid-field hero ── */
 (function () {
   var VS = 'attribute vec2 aPos;void main(){gl_Position=vec4(aPos,0.,1.);}';
   var FS = [
@@ -931,339 +896,3 @@ updateDots();
     '  col=pow(clamp(col,0.,1.),vec3(.84));',
     '  gl_FragColor=vec4(col,1.);}',
   ].join('\n');
-
-  var canvas = document.getElementById('hero-canvas');
-  if (!canvas) return;
-  var gl = canvas.getContext('webgl', { antialias: false }) ||
-           canvas.getContext('experimental-webgl', { antialias: false });
-  if (!gl) return;
-
-  function mkShader(type, src) {
-    var s = gl.createShader(type);
-    gl.shaderSource(s, src); gl.compileShader(s); return s;
-  }
-  var prog = gl.createProgram();
-  gl.attachShader(prog, mkShader(gl.VERTEX_SHADER, VS));
-  gl.attachShader(prog, mkShader(gl.FRAGMENT_SHADER, FS));
-  gl.linkProgram(prog);
-
-  var buf = gl.createBuffer();
-  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,1,-1,-1,1,1,1]), gl.STATIC_DRAW);
-  var aPos = gl.getAttribLocation(prog, 'aPos');
-  gl.enableVertexAttribArray(aPos);
-  gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-
-  var uT = gl.getUniformLocation(prog, 'uT');
-  var uR = gl.getUniformLocation(prog, 'uR');
-  var uM = gl.getUniformLocation(prog, 'uM');
-  var mouse = { x: 0, y: 0 };
-  var start = performance.now();
-
-  function resize() {
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    canvas.width  = Math.round(canvas.offsetWidth  * dpr);
-    canvas.height = Math.round(canvas.offsetHeight * dpr);
-    gl.viewport(0, 0, canvas.width, canvas.height);
-  }
-  if (typeof ResizeObserver !== 'undefined') {
-    new ResizeObserver(resize).observe(canvas);
-  } else {
-    window.addEventListener('resize', resize);
-  }
-  resize();
-
-  canvas.addEventListener('mousemove', function (e) {
-    var r = canvas.getBoundingClientRect();
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    mouse.x = (e.clientX - r.left) * dpr;
-    mouse.y = (r.bottom - e.clientY) * dpr;
-  });
-  canvas.addEventListener('touchmove', function (e) {
-    if (!e.touches[0]) return;
-    var r = canvas.getBoundingClientRect();
-    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-    mouse.x = (e.touches[0].clientX - r.left) * dpr;
-    mouse.y = (r.bottom - e.touches[0].clientY) * dpr;
-  }, { passive: true });
-
-  (function frame() {
-    var t = (performance.now() - start) / 1000;
-    gl.useProgram(prog);
-    gl.uniform1f(uT, t);
-    gl.uniform2f(uR, canvas.width, canvas.height);
-    gl.uniform2f(uM, mouse.x, mouse.y);
-    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-    requestAnimationFrame(frame);
-  })();
-})();
-</script>
-<!-- ── TWEAKS PANEL ───────────────────────────────────────────────── -->
-<style>
-  #tweaks-panel {
-    position: fixed; bottom: 24px; right: 24px; z-index: 9999;
-    width: 280px; background: rgba(10,19,38,0.95);
-    border: 1px solid rgba(157,176,206,0.22);
-    border-radius: 10px; box-shadow: 0 24px 48px rgba(0,0,0,0.6);
-    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-    font-family: "Inter Tight", "JetBrains Mono", sans-serif;
-    display: none; flex-direction: column;
-    overflow: hidden; user-select: none;
-  }
-  #tweaks-panel.open { display: flex; }
-  .tp-header {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 14px 16px; border-bottom: 1px solid rgba(157,176,206,0.14);
-    cursor: grab;
-  }
-  .tp-header:active { cursor: grabbing; }
-  .tp-title { font-size: 11px; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: #9DB0CE; }
-  .tp-close { width: 20px; height: 20px; background: rgba(157,176,206,0.12);
-    border: none; border-radius: 50%; cursor: pointer; color: #9DB0CE;
-    font-size: 13px; display: flex; align-items: center; justify-content: center;
-    transition: background .2s; }
-  .tp-close:hover { background: rgba(43,84,240,0.4); color: #EAF1FF; }
-  .tp-body { padding: 14px 16px; display: flex; flex-direction: column; gap: 16px; }
-  .tp-row { display: flex; flex-direction: column; gap: 8px; }
-  .tp-label { font-size: 10px; font-weight: 600; letter-spacing: 0.12em;
-    text-transform: uppercase; color: rgba(157,176,206,0.7); }
-  /* Color swatches */
-  .tp-swatches { display: flex; gap: 8px; }
-  .tp-swatch {
-    width: 28px; height: 28px; border-radius: 6px; cursor: pointer;
-    border: 2px solid transparent; transition: transform .15s, border-color .15s;
-    flex-shrink: 0;
-  }
-  .tp-swatch:hover { transform: scale(1.15); }
-  .tp-swatch.active { border-color: #EAF1FF; box-shadow: 0 0 0 2px rgba(234,241,255,0.2); }
-  /* Segmented */
-  .tp-seg { display: flex; gap: 4px; }
-  .tp-seg-btn {
-    flex: 1; padding: 7px 6px; border-radius: 5px; border: 1px solid rgba(157,176,206,0.2);
-    background: rgba(157,176,206,0.06); color: rgba(234,241,255,0.75);
-    font-size: 11px; font-weight: 500; cursor: pointer; text-align: center;
-    transition: all .2s; white-space: nowrap;
-  }
-  .tp-seg-btn:hover { border-color: rgba(157,176,206,0.4); }
-  .tp-seg-btn.active { background: var(--accent); color: #EAF1FF; border-color: var(--accent); }
-  /* Toggle */
-  .tp-toggle-row { display: flex; align-items: center; justify-content: space-between; }
-  .tp-toggle-label { font-size: 12.5px; color: #9DB0CE; }
-  .tp-toggle {
-    width: 36px; height: 20px; border-radius: 10px;
-    background: rgba(157,176,206,0.18); border: none; cursor: pointer;
-    position: relative; transition: background .25s;
-  }
-  .tp-toggle::after {
-    content: ""; position: absolute; top: 3px; left: 3px;
-    width: 14px; height: 14px; border-radius: 50%; background: #9DB0CE;
-    transition: transform .25s, background .25s;
-  }
-  .tp-toggle.on { background: var(--accent); }
-  .tp-toggle.on::after { transform: translateX(16px); background: #EAF1FF; }
-  /* Headline selector */
-  .tp-headline-opts { display: flex; flex-direction: column; gap: 4px; }
-  .tp-hl-opt {
-    padding: 8px 10px; border-radius: 5px; border: 1px solid rgba(157,176,206,0.15);
-    background: rgba(157,176,206,0.04); color: rgba(234,241,255,0.7);
-    font-size: 11px; cursor: pointer; transition: all .2s; line-height: 1.3;
-  }
-  .tp-hl-opt:hover { border-color: rgba(157,176,206,0.3); }
-  .tp-hl-opt.active { border-color: var(--accent); color: #EAF1FF; background: rgba(43,84,240,0.12); }
-</style>
-
-<div id="tweaks-panel">
-  <div class="tp-header" id="tp-drag-handle">
-    <span class="tp-title">Tweaks</span>
-    <button class="tp-close" id="tp-close-btn">✕</button>
-  </div>
-  <div class="tp-body">
-    <div class="tp-row">
-      <span class="tp-label">Accent Colour</span>
-      <div class="tp-swatches">
-        <div class="tp-swatch active" data-accent="#2B54F0" data-accent2="#7FB0FF" style="background:#2B54F0;" title="Electric Blue"></div>
-        <div class="tp-swatch" data-accent="#4F46E5" data-accent2="#A5B4FC" style="background:#4F46E5;" title="Indigo"></div>
-        <div class="tp-swatch" data-accent="#0EA5E9" data-accent2="#7DD3FC" style="background:#0EA5E9;" title="Cyber Teal"></div>
-        <div class="tp-swatch" data-accent="#6D28D9" data-accent2="#C4B5FD" style="background:#6D28D9;" title="Violet"></div>
-        <div class="tp-swatch" data-accent="#059669" data-accent2="#6EE7B7" style="background:#059669;" title="Forest"></div>
-      </div>
-    </div>
-    <div class="tp-row">
-      <span class="tp-label">Background</span>
-      <div class="tp-seg" id="tp-bg-seg">
-        <button class="tp-seg-btn active" data-bg="#04070F" data-bg2="#0A1326">Pure Black</button>
-        <button class="tp-seg-btn" data-bg="#0A0F1E" data-bg2="#111827">Slate Navy</button>
-        <button class="tp-seg-btn" data-bg="#0C0A09" data-bg2="#1C1917">Warm Dark</button>
-      </div>
-    </div>
-    <div class="tp-row">
-      <span class="tp-label">Headline</span>
-      <div class="tp-headline-opts" id="tp-headline-opts">
-        <div class="tp-hl-opt active" data-line1="Turning <em>strategy</em>" data-line2="into revenue.">Turning strategy into revenue.</div>
-        <div class="tp-hl-opt" data-line1="Marketing that" data-line2="<em>moves</em> the number.">Marketing that moves the number.</div>
-        <div class="tp-hl-opt" data-line1="<em>Growth</em> without" data-line2="the guesswork.">Growth without the guesswork.</div>
-      </div>
-    </div>
-    <div class="tp-row">
-      <span class="tp-label">Options</span>
-      <div class="tp-toggle-row">
-        <span class="tp-toggle-label">WebGL animation</span>
-        <button class="tp-toggle on" id="tp-webgl-toggle"></button>
-      </div>
-      <div class="tp-toggle-row" style="margin-top:8px;">
-        <span class="tp-toggle-label">Scroll beam</span>
-        <button class="tp-toggle on" id="tp-beam-toggle"></button>
-      </div>
-      <div class="tp-toggle-row" style="margin-top:8px;">
-        <span class="tp-toggle-label">Marquee strip</span>
-        <button class="tp-toggle on" id="tp-marquee-toggle"></button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<script>
-(function () {
-  const panel   = document.getElementById('tweaks-panel');
-  const root    = document.documentElement;
-  const LS_KEY  = 'bl-tweaks-v1';
-
-  /* ── Persistence ── */
-  function save(state) { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e){} }
-  function load() { try { return JSON.parse(localStorage.getItem(LS_KEY)) || {}; } catch(e){ return {}; } }
-
-  /* ── Host protocol: show/hide from toolbar ── */
-  window.addEventListener('message', function(e) {
-    if (!e.data) return;
-    if (e.data.type === 'tweaks:show') panel.classList.add('open');
-    if (e.data.type === 'tweaks:hide') panel.classList.remove('open');
-  });
-  document.getElementById('tp-close-btn').addEventListener('click', function() {
-    panel.classList.remove('open');
-    try { window.parent.postMessage({ type: 'tweaks:closed' }, '*'); } catch(e) {}
-  });
-
-  /* ── Drag ── */
-  (function() {
-    var drag = document.getElementById('tp-drag-handle');
-    var dx=0, dy=0, mx=0, my=0;
-    drag.addEventListener('mousedown', function(e) {
-      e.preventDefault();
-      mx = e.clientX; my = e.clientY;
-      document.addEventListener('mousemove', onMove);
-      document.addEventListener('mouseup', onUp);
-    });
-    function onMove(e) {
-      dx = mx - e.clientX; dy = my - e.clientY;
-      mx = e.clientX; my = e.clientY;
-      panel.style.top  = (panel.offsetTop  - dy) + 'px';
-      panel.style.left = (panel.offsetLeft - dx) + 'px';
-      panel.style.right = 'auto'; panel.style.bottom = 'auto';
-    }
-    function onUp() {
-      document.removeEventListener('mousemove', onMove);
-      document.removeEventListener('mouseup', onUp);
-    }
-  })();
-
-  /* ── Accent colour ── */
-  document.querySelectorAll('.tp-swatch').forEach(function(sw) {
-    sw.addEventListener('click', function() {
-      document.querySelectorAll('.tp-swatch').forEach(function(s){ s.classList.remove('active'); });
-      sw.classList.add('active');
-      var a = sw.dataset.accent, a2 = sw.dataset.accent2;
-      root.style.setProperty('--accent', a);
-      root.style.setProperty('--accent-2', a2);
-      root.style.setProperty('--accent-soft', a + '26');
-      var st = load(); st.accent = a; st.accent2 = a2; save(st);
-    });
-  });
-
-  /* ── Background ── */
-  document.querySelectorAll('#tp-bg-seg .tp-seg-btn').forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('#tp-bg-seg .tp-seg-btn').forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      var bg = btn.dataset.bg, bg2 = btn.dataset.bg2;
-      root.style.setProperty('--bg', bg);
-      root.style.setProperty('--bg-soft', bg2);
-      document.body.style.background = bg;
-      var st = load(); st.bg = bg; st.bg2 = bg2; save(st);
-    });
-  });
-
-  /* ── Headline ── */
-  var heroTitle = document.querySelector('.hero-title');
-  document.querySelectorAll('#tp-headline-opts .tp-hl-opt').forEach(function(opt) {
-    opt.addEventListener('click', function() {
-      document.querySelectorAll('#tp-headline-opts .tp-hl-opt').forEach(function(o){ o.classList.remove('active'); });
-      opt.classList.add('active');
-      if (heroTitle) heroTitle.innerHTML = opt.dataset.line1 + '<br>' + opt.dataset.line2;
-      var st = load(); st.hlIdx = opt.dataset.line1; save(st);
-    });
-  });
-
-  /* ── WebGL toggle ── */
-  var webglToggle = document.getElementById('tp-webgl-toggle');
-  var heroCanvas  = document.getElementById('hero-canvas');
-  webglToggle.addEventListener('click', function() {
-    var on = webglToggle.classList.toggle('on');
-    if (heroCanvas) heroCanvas.style.opacity = on ? '1' : '0';
-    var st = load(); st.webgl = on; save(st);
-  });
-
-  /* ── Scroll beam toggle ── */
-  var beamToggle = document.getElementById('tp-beam-toggle');
-  var beamEl     = document.getElementById('scrollBeam');
-  beamToggle.addEventListener('click', function() {
-    var on = beamToggle.classList.toggle('on');
-    if (beamEl) beamEl.style.display = on ? '' : 'none';
-    var st = load(); st.beam = on; save(st);
-  });
-
-  /* ── Marquee toggle ── */
-  var marqToggle = document.getElementById('tp-marquee-toggle');
-  var marqEl     = document.querySelector('.marquee');
-  marqToggle.addEventListener('click', function() {
-    var on = marqToggle.classList.toggle('on');
-    if (marqEl) marqEl.style.display = on ? '' : 'none';
-    var st = load(); st.marquee = on; save(st);
-  });
-
-  /* ── Restore saved state ── */
-  (function() {
-    var st = load();
-    if (st.accent) {
-      root.style.setProperty('--accent', st.accent);
-      root.style.setProperty('--accent-2', st.accent2 || '#7FB0FF');
-      root.style.setProperty('--accent-soft', st.accent + '26');
-      document.querySelectorAll('.tp-swatch').forEach(function(s) {
-        s.classList.toggle('active', s.dataset.accent === st.accent);
-      });
-    }
-    if (st.bg) {
-      root.style.setProperty('--bg', st.bg);
-      root.style.setProperty('--bg-soft', st.bg2 || '#0A1326');
-      document.body.style.background = st.bg;
-      document.querySelectorAll('#tp-bg-seg .tp-seg-btn').forEach(function(b) {
-        b.classList.toggle('active', b.dataset.bg === st.bg);
-      });
-    }
-    if (st.webgl === false) {
-      webglToggle.classList.remove('on');
-      if (heroCanvas) heroCanvas.style.opacity = '0';
-    }
-    if (st.beam === false) {
-      beamToggle.classList.remove('on');
-      if (beamEl) beamEl.style.display = 'none';
-    }
-    if (st.marquee === false) {
-      marqToggle.classList.remove('on');
-      if (marqEl) marqEl.style.display = 'none';
-    }
-  })();
-})();
-</script>
-</body>
-</html>
