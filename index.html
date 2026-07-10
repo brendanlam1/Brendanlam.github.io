@@ -7,6 +7,22 @@
 <title>Brendan Lam — Marketing & Sales Specialist | Sydney</title>
 <meta name="description" content="Sydney-based marketing & sales specialist. Strategy, growth, and AI-powered campaigns that turn intent into revenue." />
 <meta name="theme-color" content="#F7F9FE" />
+<script>
+/* Day/night theme: light 7am–7pm local time, dark otherwise */
+(function () {
+  var meta;
+  function applyTheme() {
+    var h = new Date().getHours();
+    var dark = h < 7 || h >= 19;
+    document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+    meta = meta || document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.setAttribute('content', dark ? '#04070F' : '#F7F9FE');
+  }
+  applyTheme();
+  setInterval(applyTheme, 60000);
+  document.addEventListener('visibilitychange', applyTheme);
+})();
+</script>
   <link rel="icon" href="/Lam_on_brands.png" type="image/png">
 <link rel="apple-touch-icon" href="/Lam_on_brands.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,6 +31,7 @@
 <style>
   :root {
     --bg:          #F7F9FE;
+    --bg-rgb:      247,249,254;
     --bg-soft:     #EDF1FA;
     --paper:       #FFFFFF;
     --ink:         #0B1526;
@@ -25,9 +42,29 @@
     --accent-2:    #1E42D6;
     --accent-soft: rgba(43,84,240,0.10);
     --on-accent:   #FFFFFF;
+    --nav-glass:   rgba(247,249,254,0.82);
+    --grain-dot:   rgba(11,21,38,0.05);
     --serif: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
     --sans:  "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --mono:  "JetBrains Mono", ui-monospace, monospace;
+  }
+
+  /* Night palette — applied automatically between 7pm and 7am local time */
+  :root[data-theme="dark"] {
+    --bg:          #04070F;
+    --bg-rgb:      4,7,15;
+    --bg-soft:     #0A1326;
+    --paper:       #0F1D3A;
+    --ink:         #EAF1FF;
+    --ink-soft:    #9DB0CE;
+    --muted:       rgba(157,176,206,0.55);
+    --line:        rgba(157,176,206,0.18);
+    --accent:      #2B54F0;
+    --accent-2:    #7FB0FF;
+    --accent-soft: rgba(43,84,240,0.14);
+    --on-accent:   #EAF1FF;
+    --nav-glass:   rgba(4,7,15,0.78);
+    --grain-dot:   rgba(157,176,206,0.08);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -59,7 +96,7 @@
   /* Dot-grid grain overlay */
   .grain {
     position: fixed; inset: 0; z-index: 1; pointer-events: none;
-    background-image: radial-gradient(circle at 1px 1px, rgba(11,21,38,0.05) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, var(--grain-dot) 1px, transparent 0);
     background-size: 20px 20px;
     opacity: 1;
   }
@@ -103,7 +140,7 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
-    background: rgba(247,249,254,0.82);
+    background: var(--nav-glass);
     border-bottom: 1px solid var(--line);
     transition: background .3s ease, border-color .3s ease;
   }
@@ -167,8 +204,8 @@
   .hero::before {
     content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
     background:
-      linear-gradient(to right, rgba(247,249,254,0.9) 0%, rgba(247,249,254,0.55) 55%, rgba(247,249,254,0.2) 100%),
-      linear-gradient(to top, rgba(247,249,254,0.65) 0%, transparent 38%);
+      linear-gradient(to right, rgba(var(--bg-rgb),0.9) 0%, rgba(var(--bg-rgb),0.55) 55%, rgba(var(--bg-rgb),0.2) 100%),
+      linear-gradient(to top, rgba(var(--bg-rgb),0.65) 0%, transparent 38%);
   }
   .hero .container { position: relative; z-index: 2; padding-top: 160px; padding-bottom: 80px; }
 
@@ -958,13 +995,13 @@ updateDots();
   var VS = 'attribute vec2 aPos;void main(){gl_Position=vec4(aPos,0.,1.);}';
   var FS = [
     'precision highp float;',
-    'uniform float uT;uniform vec2 uR;uniform vec2 uM;',
+    'uniform float uT;uniform vec2 uR;uniform vec2 uM;uniform float uDark;',
     'vec2 h2(vec2 p){vec2 k=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3)));return -1.+2.*fract(sin(k)*43758.5453);}',
     'float gn(vec2 p){vec2 i=floor(p),f=fract(p),u=f*f*(3.-2.*f);return mix(mix(dot(h2(i),f),dot(h2(i+vec2(1,0)),f-vec2(1,0)),u.x),mix(dot(h2(i+vec2(0,1)),f-vec2(0,1)),dot(h2(i+vec2(1,1)),f-vec2(1,1)),u.x),u.y);}',
     'mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}',
     'float fbm(vec2 p){float v=0.,a=.52;mat2 r=rot(.47);for(int i=0;i<5;i++){v+=a*gn(p);p=r*p*2.07+.81;a*=.5;}return v;}',
     'vec3 pal(float t){t=clamp(t,0.,1.);',
-    '  vec3 c0=vec3(.969,.976,.996),c1=vec3(.85,.90,1.),c2=vec3(.55,.68,.99),c3=vec3(.25,.42,.95),c4=vec3(.08,.16,.55);',
+    '  vec3 c0=mix(vec3(.969,.976,.996),vec3(.016,.027,.059),uDark),c1=mix(vec3(.85,.90,1.),vec3(.053,.110,.365),uDark),c2=mix(vec3(.55,.68,.99),vec3(.169,.329,.941),uDark),c3=mix(vec3(.25,.42,.95),vec3(.498,.69,1.),uDark),c4=mix(vec3(.08,.16,.55),vec3(.918,.945,1.),uDark);',
     '  if(t<.25)return mix(c0,c1,t/.25);if(t<.5)return mix(c1,c2,(t-.25)/.25);',
     '  if(t<.75)return mix(c2,c3,(t-.5)/.25);return mix(c3,c4,(t-.75)/.25);}',
     'void main(){',
@@ -977,8 +1014,8 @@ updateDots();
     '  vec2 mp=(uM*2.-uR)/min(uR.x,uR.y)*1.15;',
     '  float md=length(p-mp),mg=exp(-md*4.8)*.6;',
     '  f=mix(f,1.,mg*.72);',
-    '  vec3 col=pal(f);col=mix(col,vec3(.17,.33,.94),mg*.5);',
-    '  float vg=1.-smoothstep(.45,1.55,length(p));col*=mix(.88,1.,vg);',
+    '  vec3 col=pal(f);col=mix(col,vec3(.17,.33,.94),mg*.5*(1.-uDark));col+=vec3(.08,.22,1.)*mg*.9*uDark;',
+    '  float vg=1.-smoothstep(.45,1.55,length(p));col*=mix(mix(.88,.7,uDark),1.,vg);',
     '  col=pow(clamp(col,0.,1.),vec3(.84));',
     '  gl_FragColor=vec4(col,1.);}',
   ].join('\n');
@@ -1008,6 +1045,7 @@ updateDots();
   var uT = gl.getUniformLocation(prog, 'uT');
   var uR = gl.getUniformLocation(prog, 'uR');
   var uM = gl.getUniformLocation(prog, 'uM');
+  var uDark = gl.getUniformLocation(prog, 'uDark');
   var mouse = { x: 0, y: 0 };
   var start = performance.now();
 
@@ -1042,6 +1080,7 @@ updateDots();
     var t = (performance.now() - start) / 1000;
     gl.useProgram(prog);
     gl.uniform1f(uT, t);
+    gl.uniform1f(uDark, document.documentElement.getAttribute('data-theme') === 'dark' ? 1 : 0);
     gl.uniform2f(uR, canvas.width, canvas.height);
     gl.uniform2f(uM, mouse.x, mouse.y);
     gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
