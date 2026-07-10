@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Brendan Lam — Marketing & Sales Specialist | Sydney</title>
 <meta name="description" content="Sydney-based marketing & sales specialist. Strategy, growth, and AI-powered campaigns that turn intent into revenue." />
+<meta name="theme-color" content="#F7F9FE" />
   <link rel="icon" href="/Lam_on_brands.png" type="image/png">
 <link rel="apple-touch-icon" href="/Lam_on_brands.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,16 +14,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg:          #04070F;
-    --bg-soft:     #0A1326;
-    --paper:       #0F1D3A;
-    --ink:         #EAF1FF;
-    --ink-soft:    #9DB0CE;
-    --muted:       rgba(157,176,206,0.55);
-    --line:        rgba(157,176,206,0.18);
+    --bg:          #F7F9FE;
+    --bg-soft:     #EDF1FA;
+    --paper:       #FFFFFF;
+    --ink:         #0B1526;
+    --ink-soft:    #46587A;
+    --muted:       rgba(70,88,122,0.55);
+    --line:        rgba(11,21,38,0.14);
     --accent:      #2B54F0;
-    --accent-2:    #7FB0FF;
-    --accent-soft: rgba(43,84,240,0.14);
+    --accent-2:    #1E42D6;
+    --accent-soft: rgba(43,84,240,0.10);
+    --on-accent:   #FFFFFF;
     --serif: "Instrument Serif", "Cormorant Garamond", Georgia, serif;
     --sans:  "Inter Tight", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     --mono:  "JetBrains Mono", ui-monospace, monospace;
@@ -57,7 +59,7 @@
   /* Dot-grid grain overlay */
   .grain {
     position: fixed; inset: 0; z-index: 1; pointer-events: none;
-    background-image: radial-gradient(circle at 1px 1px, rgba(157,176,206,0.08) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(11,21,38,0.05) 1px, transparent 0);
     background-size: 20px 20px;
     opacity: 1;
   }
@@ -101,7 +103,7 @@
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
     backdrop-filter: blur(20px) saturate(160%);
     -webkit-backdrop-filter: blur(20px) saturate(160%);
-    background: rgba(4,7,15,0.78);
+    background: rgba(247,249,254,0.82);
     border-bottom: 1px solid var(--line);
     transition: background .3s ease, border-color .3s ease;
   }
@@ -131,7 +133,7 @@
     border: 1px solid var(--line); border-radius: 999px;
     transition: all .25s ease; color: var(--ink-soft);
   }
-  .nav-cta:hover { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+  .nav-cta:hover { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
   @media (max-width: 720px) { .nav-links { display: none; } }
 
   /* ── BEACON RIPPLES ── */
@@ -165,8 +167,8 @@
   .hero::before {
     content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
     background:
-      linear-gradient(to right, rgba(4,7,15,0.88) 0%, rgba(4,7,15,0.5) 55%, rgba(4,7,15,0.2) 100%),
-      linear-gradient(to top, rgba(4,7,15,0.6) 0%, transparent 38%);
+      linear-gradient(to right, rgba(247,249,254,0.9) 0%, rgba(247,249,254,0.55) 55%, rgba(247,249,254,0.2) 100%),
+      linear-gradient(to top, rgba(247,249,254,0.65) 0%, transparent 38%);
   }
   .hero .container { position: relative; z-index: 2; padding-top: 160px; padding-bottom: 80px; }
 
@@ -212,7 +214,7 @@
     transition: all .25s ease; cursor: pointer; border: none;
     white-space: nowrap;
   }
-  .btn-primary { background: var(--accent); color: var(--ink); }
+  .btn-primary { background: var(--accent); color: var(--on-accent); }
   .btn-primary:hover { background: #1E42D6; box-shadow: 0 12px 32px -8px rgba(43,84,240,0.65); transform: translateY(-1px); }
   .btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
   .btn-secondary:hover { background: rgba(43,84,240,0.12); border-color: var(--accent); }
@@ -312,7 +314,7 @@
     cursor: pointer; transition: all .25s ease;
   }
   .chip:hover { border-color: var(--accent); color: var(--accent-2); transform: translateY(-1px); }
-  .chip.active { background: var(--accent); color: var(--ink); border-color: var(--accent); }
+  .chip.active { background: var(--accent); color: var(--on-accent); border-color: var(--accent); }
 
   /* ── SERVICES ── */
   .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 20px; }
@@ -401,7 +403,7 @@
   }
   .portrait-tag-2 {
     position: absolute; top: 28px; right: 28px;
-    background: var(--accent); color: var(--ink);
+    background: var(--accent); color: var(--on-accent);
     padding: 8px 14px; border-radius: 6px;
     font-family: var(--mono); font-size: 11px; font-weight: 500;
     text-transform: uppercase; letter-spacing: 0.1em; z-index: 3;
@@ -466,16 +468,16 @@
   .ig-tile::after { content: ""; position: absolute; inset: 0; background: rgba(4,7,15,0); transition: background .3s ease; }
   .ig-tile:hover { transform: scale(1.04); z-index: 5; }
   .ig-tile:hover::after { background: rgba(4,7,15,0.45); }
-  .ig-tile:hover .ig-icon { color: var(--ink); transform: scale(1.12); }
+  .ig-tile:hover .ig-icon { color: var(--on-accent); transform: scale(1.12); }
   .ig-icon { font-family: var(--serif); font-style: italic; font-size: 56px; color: rgba(234,241,255,0.9); transition: all .3s ease; z-index: 2; text-shadow: 0 2px 20px rgba(4,7,15,0.6); }
-  .ig-tile-1 { background: linear-gradient(135deg, #04070F, #2B54F0); }
-  .ig-tile-2 { background: linear-gradient(160deg, #0A1326, #7FB0FF 140%); }
+  .ig-tile-1 { background: linear-gradient(135deg, #DCE7FF, #2B54F0); }
+  .ig-tile-2 { background: linear-gradient(160deg, #EDF1FA, #7FB0FF 140%); }
   .ig-tile-3 { background: linear-gradient(135deg, #2B54F0, #7FB0FF); }
-  .ig-tile-4 { background: linear-gradient(160deg, #04070F, #15368F); }
-  .ig-tile-5 { background: linear-gradient(135deg, #0F1D3A, #2B54F0 160%); }
-  .ig-tile-6 { background: linear-gradient(160deg, #0A1326, #04070F); }
-  .ig-tile-7 { background: linear-gradient(135deg, #15368F, #04070F); }
-  .ig-tile-8 { background: linear-gradient(160deg, #2B54F0 -20%, #0A1326); }
+  .ig-tile-4 { background: linear-gradient(160deg, #C9D8FF, #15368F); }
+  .ig-tile-5 { background: linear-gradient(135deg, #E6EDFC, #2B54F0 160%); }
+  .ig-tile-6 { background: linear-gradient(160deg, #D7E2F8, #B9CBF2); }
+  .ig-tile-7 { background: linear-gradient(135deg, #15368F, #7FB0FF); }
+  .ig-tile-8 { background: linear-gradient(160deg, #2B54F0 -20%, #DCE7FF); }
   .ig-note {
     margin-top: 28px; padding: 20px 24px;
     background: var(--bg); border-left: 2px solid var(--accent);
@@ -489,13 +491,13 @@
   .contact-bg-orb {
     position: absolute; top: -160px; right: -160px;
     width: 500px; height: 500px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(43,84,240,0.3), transparent 70%);
+    background: radial-gradient(circle, rgba(43,84,240,0.16), transparent 70%);
     filter: blur(60px);
   }
   .contact-bg-orb-2 {
     position: absolute; bottom: -160px; left: -160px;
     width: 480px; height: 480px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(127,176,255,0.2), transparent 70%);
+    background: radial-gradient(circle, rgba(127,176,255,0.14), transparent 70%);
     filter: blur(60px);
   }
   .contact .section-label { color: var(--accent-2); }
@@ -515,7 +517,7 @@
   }
   .contact-cta-title { font-family: var(--serif); font-size: 34px; line-height: 1.15; margin-bottom: 18px; color: var(--ink); }
   .contact-cta-text { color: var(--ink-soft); font-size: 16px; margin-bottom: 28px; line-height: 1.7; }
-  .btn-light { background: var(--accent); color: var(--ink); }
+  .btn-light { background: var(--accent); color: var(--on-accent); }
   .btn-light:hover { background: #1E42D6; box-shadow: 0 8px 30px -8px rgba(43,84,240,0.7); }
 
   /* ── FOOTER ── */
@@ -962,7 +964,7 @@ updateDots();
     'mat2 rot(float a){float c=cos(a),s=sin(a);return mat2(c,-s,s,c);}',
     'float fbm(vec2 p){float v=0.,a=.52;mat2 r=rot(.47);for(int i=0;i<5;i++){v+=a*gn(p);p=r*p*2.07+.81;a*=.5;}return v;}',
     'vec3 pal(float t){t=clamp(t,0.,1.);',
-    '  vec3 c0=vec3(.016,.027,.059),c1=vec3(.053,.110,.365),c2=vec3(.169,.329,.941),c3=vec3(.498,.69,1.),c4=vec3(.918,.945,1.);',
+    '  vec3 c0=vec3(.969,.976,.996),c1=vec3(.85,.90,1.),c2=vec3(.55,.68,.99),c3=vec3(.25,.42,.95),c4=vec3(.08,.16,.55);',
     '  if(t<.25)return mix(c0,c1,t/.25);if(t<.5)return mix(c1,c2,(t-.25)/.25);',
     '  if(t<.75)return mix(c2,c3,(t-.5)/.25);return mix(c3,c4,(t-.75)/.25);}',
     'void main(){',
@@ -975,8 +977,8 @@ updateDots();
     '  vec2 mp=(uM*2.-uR)/min(uR.x,uR.y)*1.15;',
     '  float md=length(p-mp),mg=exp(-md*4.8)*.6;',
     '  f=mix(f,1.,mg*.72);',
-    '  vec3 col=pal(f);col+=vec3(.08,.22,1.)*mg*.9;',
-    '  float vg=1.-smoothstep(.45,1.55,length(p));col*=mix(.7,1.,vg);',
+    '  vec3 col=pal(f);col=mix(col,vec3(.17,.33,.94),mg*.5);',
+    '  float vg=1.-smoothstep(.45,1.55,length(p));col*=mix(.88,1.,vg);',
     '  col=pow(clamp(col,0.,1.),vec3(.84));',
     '  gl_FragColor=vec4(col,1.);}',
   ].join('\n');
@@ -1131,19 +1133,19 @@ updateDots();
     <div class="tp-row">
       <span class="tp-label">Accent Colour</span>
       <div class="tp-swatches">
-        <div class="tp-swatch active" data-accent="#2B54F0" data-accent2="#7FB0FF" style="background:#2B54F0;" title="Electric Blue"></div>
-        <div class="tp-swatch" data-accent="#4F46E5" data-accent2="#A5B4FC" style="background:#4F46E5;" title="Indigo"></div>
-        <div class="tp-swatch" data-accent="#0EA5E9" data-accent2="#7DD3FC" style="background:#0EA5E9;" title="Cyber Teal"></div>
-        <div class="tp-swatch" data-accent="#6D28D9" data-accent2="#C4B5FD" style="background:#6D28D9;" title="Violet"></div>
-        <div class="tp-swatch" data-accent="#059669" data-accent2="#6EE7B7" style="background:#059669;" title="Forest"></div>
+        <div class="tp-swatch active" data-accent="#2B54F0" data-accent2="#1E42D6" style="background:#2B54F0;" title="Electric Blue"></div>
+        <div class="tp-swatch" data-accent="#4F46E5" data-accent2="#4338CA" style="background:#4F46E5;" title="Indigo"></div>
+        <div class="tp-swatch" data-accent="#0EA5E9" data-accent2="#0369A1" style="background:#0EA5E9;" title="Cyber Teal"></div>
+        <div class="tp-swatch" data-accent="#6D28D9" data-accent2="#5B21B6" style="background:#6D28D9;" title="Violet"></div>
+        <div class="tp-swatch" data-accent="#059669" data-accent2="#047857" style="background:#059669;" title="Forest"></div>
       </div>
     </div>
     <div class="tp-row">
       <span class="tp-label">Background</span>
       <div class="tp-seg" id="tp-bg-seg">
-        <button class="tp-seg-btn active" data-bg="#04070F" data-bg2="#0A1326">Pure Black</button>
-        <button class="tp-seg-btn" data-bg="#0A0F1E" data-bg2="#111827">Slate Navy</button>
-        <button class="tp-seg-btn" data-bg="#0C0A09" data-bg2="#1C1917">Warm Dark</button>
+        <button class="tp-seg-btn active" data-bg="#F7F9FE" data-bg2="#EDF1FA">Cool White</button>
+        <button class="tp-seg-btn" data-bg="#FFFFFF" data-bg2="#F3F6FC">Pure White</button>
+        <button class="tp-seg-btn" data-bg="#FBF9F4" data-bg2="#F3EFE6">Warm Paper</button>
       </div>
     </div>
     <div class="tp-row">
@@ -1176,7 +1178,7 @@ updateDots();
 (function () {
   const panel   = document.getElementById('tweaks-panel');
   const root    = document.documentElement;
-  const LS_KEY  = 'bl-tweaks-v1';
+  const LS_KEY  = 'bl-tweaks-v2';
 
   /* ── Persistence ── */
   function save(state) { try { localStorage.setItem(LS_KEY, JSON.stringify(state)); } catch(e){} }
@@ -1285,7 +1287,7 @@ updateDots();
     var st = load();
     if (st.accent) {
       root.style.setProperty('--accent', st.accent);
-      root.style.setProperty('--accent-2', st.accent2 || '#7FB0FF');
+      root.style.setProperty('--accent-2', st.accent2 || '#1E42D6');
       root.style.setProperty('--accent-soft', st.accent + '26');
       document.querySelectorAll('.tp-swatch').forEach(function(s) {
         s.classList.toggle('active', s.dataset.accent === st.accent);
@@ -1293,7 +1295,7 @@ updateDots();
     }
     if (st.bg) {
       root.style.setProperty('--bg', st.bg);
-      root.style.setProperty('--bg-soft', st.bg2 || '#0A1326');
+      root.style.setProperty('--bg-soft', st.bg2 || '#EDF1FA');
       document.body.style.background = st.bg;
       document.querySelectorAll('#tp-bg-seg .tp-seg-btn').forEach(function(b) {
         b.classList.toggle('active', b.dataset.bg === st.bg);
