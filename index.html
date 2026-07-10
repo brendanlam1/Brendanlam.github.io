@@ -538,6 +538,53 @@
     background: transparent !important;
   }
   .ig-behold-wrap { margin-top: 0; min-height: 0; }
+    /* ── MOBILE ── */
+  @media (max-width: 720px) {
+    body { font-size: 16px; }
+    .container { padding: 0 20px; }
+    section { padding: 72px 0; }
+
+    .nav-inner { padding: 14px 20px; }
+    .nav-logo { font-size: 22px; }
+    .nav-cta { padding: 9px 16px; font-size: 13px; }
+
+    .hero .container { padding-top: 120px; padding-bottom: 56px; }
+    .hero-title { font-size: clamp(44px, 13vw, 60px); margin-bottom: 28px; }
+    .hero-sub { font-size: 17px; margin-bottom: 36px; }
+    .hero-ctas { margin-bottom: 64px; }
+    .btn { padding: 14px 22px; font-size: 14px; }
+
+    .hero-stats { grid-template-columns: 1fr 1fr; gap: 36px 24px; padding-top: 40px; }
+    .stat { padding: 0; border-left: none; }
+    .stat-num { font-size: 48px; }
+
+    .marquee { padding: 20px 0; }
+    .marquee-track { gap: 40px; }
+    .marquee-item { font-size: 22px; gap: 40px; }
+
+    .section-title { margin-bottom: 44px; }
+    .section-decor { display: none; }
+    .chips { margin-bottom: 40px; }
+
+    .services-grid { grid-template-columns: 1fr; }
+    .service-card { padding: 32px 24px; }
+    .service-title { font-size: 28px; }
+
+    .portrait-monogram { font-size: 140px; }
+    .about-text p { font-size: 16.5px; }
+
+    .exp-role { font-size: 26px; }
+    .exp-arrow { display: none; }
+    .exp-item:hover { padding-left: 0; }
+
+    .ig-grid { grid-template-columns: repeat(2, 1fr); }
+
+    .contact-cta-block { padding: 32px 24px; }
+    .contact-cta-title { font-size: 28px; }
+    .contact-val { font-size: 19px; }
+
+    .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
+  }
 </style>
 <script src="https://w.behold.so/widget.js" type="module"></script>
 </head>
